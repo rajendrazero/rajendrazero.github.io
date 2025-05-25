@@ -26,4 +26,4 @@
 
 ### 📫 Connect with Me:
 - Instagram: [@rajendra.af](https://instagram.com/_rfz08)
-- Email: [rajendra@email.com](mailto:rajendrasekolah@email.com)
+- Email: [rajendra@email.com](mailto:rajendrasekolah@gmail.com)
