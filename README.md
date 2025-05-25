@@ -18,12 +18,12 @@
 
 ### 📊 GitHub Stats:
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=rajendraFawwaz&show_icons=true&theme=tokyonight" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=rajendraFawwaz&layout=compact&theme=tokyonight" />
+  <img src="https://github-readme-stats.vercel.app/api?username=rajendrazero&show_icons=true&theme=tokyonight" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=rajendrazero&layout=compact&theme=tokyonight" />
 </p>
 
 ---
 
 ### 📫 Connect with Me:
-- Instagram: [@rajendra.af](https://instagram.com/_rfz08)
-- Email: [rajendra@email.com](mailto:rajendrasekolah@gmail.com)
+- Instagram: [@_rfz08](https://instagram.com/_rfz08)
+- Email: [rajendrasekolah@gmail.com](mailto:rajendrasekolah@gmail.com)
