@@ -191,6 +191,35 @@ body {
   background-color: var(--border-color);
 }
 
+/* ========== BG ANIMATION ========== */
+.animated-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+    
+    .animated-bg span {
+      position: absolute;
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: rgba(var(--main-color-rgb), 0.1);
+      border-radius: 50%;
+      pointer-events: none;
+      box-shadow:
+        0 0 10px rgba(var(--main-color-rgb), 0.5),
+        0 0 20px rgba(var(--main-color-rgb), 0.3),
+        0 0 40px rgba(var(--main-color-rgb), 0.2),
+        0 0 80px rgba(var(--main-color-rgb), 0.1);
+      animation: float 15s linear infinite;
+      opacity: 0;
+    }
+
+
 /* ========== TEXT ANIMATION ========== */
 .text-animation span {
   position: relative;
@@ -779,6 +808,9 @@ section.show {
 <body class="bg-border-color text-text-color font-poppins">
     <!-- Particle Background -->
     <div class="particles"></div>
+
+    <!-- Animated Background -->
+    <div class="animated-bg" id="animated-bg"></div>
   
     <!-- Floating decorative elements -->
     <div class="floating animate-float" style="top: 10%; left: 5%;">
@@ -1466,6 +1498,29 @@ section.show {
         }
       });
     });
+
+    // Create animated background elements
+    function createAnimatedBg() {
+      const bg = document.getElementById('animated-bg');
+      const colors = [
+        'rgba(var(--main-color-rgb), 0.1)',
+        'rgba(var(--main-color-rgb), 0.15)',
+        'rgba(var(--main-color-rgb), 0.2)'
+      ];
+      
+      for (let i = 0; i < 30; i++) {
+        const span = document.createElement('span');
+        span.style.left = Math.random() * 100 + '%';
+        span.style.top = Math.random() * 100 + '%';
+        span.style.width = Math.random() * 30 + 10 + 'px';
+        span.style.height = span.style.width;
+        span.style.background = colors[Math.floor(Math.random() * colors.length)];
+        span.style.animationDuration = Math.random() * 15 + 10 + 's';
+        span.style.animationDelay = Math.random() * 5 + 's';
+        span.style.opacity = Math.random() * 0.5 + 0.1;
+        bg.appendChild(span);
+      }
+    }
 
     // Particle effect
     function createParticles() {
