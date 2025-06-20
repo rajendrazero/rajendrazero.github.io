@@ -13,6 +13,7 @@
             'second-border-color': '#131313',
             'text-color': '#ffffff',
             'main-color': '#00ffee',
+            'main-color-rgb': '0, 255, 238',
           },
           fontFamily: {
             poppins: ['Poppins', 'sans-serif'],
@@ -80,6 +81,7 @@
       --second-border-color: #131313;
       --text-color: #ffffff;
       --main-color: #00ffee;
+      --main-color-rgb: 0, 255, 238;
     }
 
     * {
@@ -221,7 +223,7 @@
 
     /* Tambahkan di bagian style */
     .header.shadow {
-      box-shadow: 0 5px 20px rgba(0, 255, 238, 0.3);
+      box-shadow: 0 5px 20px rgba(var(--main-color-rgb), 0.2);
     }
 
     .home-img img:hover {
@@ -716,7 +718,7 @@
         opacity: 0.5;
       }
       100% {
-        transform: translateY(-100vh) translateX(calc((var(--random-x) * 100vw));
+        transform: translateY(-100vh) translateX(calc((var(--random-x) * 100vw)));
         opacity: 0;
         width: 2px;
         height: 2px;
@@ -1139,6 +1141,15 @@
     const navbar = document.querySelector('.navbar');
     const navbar2 = document.querySelector('.navbar2');
     
+  // Fungsi konversi heksadesimal ke RGB
+  function hexToRgb(hex) {
+    hex = hex.replace(/^#/, '');
+    const r = parseInt(hex.substring(0, 2), 16);
+    const g = parseInt(hex.substring(2, 4), 16);
+    const b = parseInt(hex.substring(4, 6), 16);
+    return `${r}, ${g}, ${b}`;
+  }
+
     // Function to close all menus
     function closeAllMenus() {
       navbar.classList.remove('active');
@@ -1192,6 +1203,11 @@
     // Color mode changer
     function color(newColor) {
       document.documentElement.style.setProperty('--main-color', newColor);
+      
+      // Konversi dan update nilai RGB
+      const rgbValue = hexToRgb(newColor);
+      document.documentElement.style.setProperty('--main-color-rgb', rgbValue);
+      
       closeAllMenus();
     }
     
@@ -1294,7 +1310,7 @@
         });
         
         box.addEventListener('animationend', () => {
-          box.classList.remove('animate-shake');
+          box.classList.remove('animate-shake');  
         });
       });
     });
@@ -1303,8 +1319,9 @@
   document.addEventListener('DOMContentLoaded', function() {
     createParticles();
     setupScrollEffects();
-    
-    // ... kode lainnya yang sudah ada ...
+    createAnimatedBg();
+    setupIntersectionObserver();
+    setupScrollEffects();
   });
   </script>
 </body>
