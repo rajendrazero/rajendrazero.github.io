@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,8 +23,8 @@
             'words': 'words 20s infinite',
             'float': 'float 6s ease-in-out infinite',
             'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-            'fade-in': 'fadeIn 1s ease-in-out forwards',
-            'slide-in': 'slideIn 1s ease-out forwards'
+            'bounce': 'bounce 1s infinite',
+            'shake': 'shake 0.5s cubic-bezier(.36,.07,.19,.97) both',
           },
           keyframes: {
             cursor: {
@@ -49,13 +49,21 @@
               '0%, 100%': { opacity: '1' },
               '50%': { opacity: '0.5' }
             },
-            fadeIn: {
-              '0%': { opacity: '0' },
-              '100%': { opacity: '1' }
+            bounce: {
+              '0%, 100%': { 
+                transform: 'translateY(-25%)',
+                'animation-timing-function': 'cubic-bezier(0.8,0,1,1)'
+              },
+              '50%': {
+                transform: 'none',
+                'animation-timing-function': 'cubic-bezier(0,0,0.2,1)'
+              }
             },
-            slideIn: {
-              '0%': { transform: 'translateY(50px)', opacity: '0' },
-              '100%': { transform: 'translateY(0)', opacity: '1' }
+            shake: {
+              '10%, 90%': { transform: 'translate3d(-1px, 0, 0)' },
+              '20%, 80%': { transform: 'translate3d(2px, 0, 0)' },
+              '30%, 50%, 70%': { transform: 'translate3d(-4px, 0, 0)' },
+              '40%, 60%': { transform: 'translate3d(4px, 0, 0)' }
             }
           }
         }
@@ -63,8 +71,9 @@
     }
   </script>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>"/>
-  <title>Rajendra | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="gambar/image.png"/>
+  <title>Website Portofolio</title>
   <style>
     :root {
       --border-color: #000000;
@@ -85,14 +94,13 @@
     }
 
     html {
-      font-size: 40.5%;
+      font-size: 60.5%;
       overflow-x: hidden;
     }
 
     body {
       background: var(--border-color);
       color: var(--text-color);
-      overflow-x: hidden;
     }
 
     .text-color{
@@ -103,9 +111,6 @@
         border-color: var(--main-color);
     }
     
-    .parallax {
-      transition: transform 0.3s ease-out;
-    }
 
     .bg-main-color {
         background-color: var(--main-color) !important;
@@ -168,6 +173,7 @@
         box-shadow: 0 0 50px var(--main-color);
     }
 
+
     ::-webkit-scrollbar {
       width: 15px;
     }
@@ -201,15 +207,10 @@
       animation: cursor 0.6s infinite, typing 20s steps(14) infinite;
     }
 
-    .home-img img {
-      animation: float 6s ease-in-out infinite;
-    }
-
     .home-img img:hover {
       box-shadow: 0 0 25px var(--main-color), 
                   0 0 50px var(--main-color), 
                   0 0 100px var(--main-color);
-      animation: none;
     }
 
     @keyframes cursor {
@@ -228,6 +229,8 @@
       10%,15%,30%,35%,50%,55%,70%,75%,90%,95% { width: 0; }
       5%,20%,25%,40%,45%,60%,65%,80%,85% { width: calc(100% + 8px); }
     }
+
+    
 
     /* Timeline Styles */
     .timeline-items {
@@ -256,21 +259,12 @@
       left: calc(50% - 8px);
       top: 10px;
       z-index: 10;
-      animation: pulse 2s infinite;
     }
     
     .timeline-item {
       position: relative;
       margin-bottom: 60px;
       width: 100%;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s, transform 0.6s;
-    }
-    
-    .timeline-item.visible {
-      opacity: 1;
-      transform: translateY(0);
     }
     
     .timeline-item:nth-child(odd) .timeline-content-container {
@@ -325,7 +319,6 @@
       display: block;
       border-bottom: 2px solid var(--main-color);
       z-index: 1000;
-      animation: fadeIn 0.3s ease-in-out;
     }
     
     .navbar a {
@@ -358,7 +351,6 @@
       border-bottom-left-radius: 2rem;
       padding: 1.5rem;
       z-index: 1000;
-      animation: fadeIn 0.3s ease-in-out;
     }
     
     .navbar2.active {
@@ -384,63 +376,99 @@
       transition: transform 0.3s ease;
     }
 
-    /* Service Box Styles */
-    .service-box {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s, transform 0.6s;
-    }
-    
-    .service-box.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Testimonial Styles */
-    .testimonials-items {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s, transform 0.6s;
-    }
-    
-    .testimonials-items.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Contact Form Styles */
-    .input-group, .input-group-2 {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s, transform 0.6s;
-    }
-    
-    .input-group.visible, .input-group-2.visible {
-      opacity: 1;
-      transform: translateY(0);
+    /* Responsiveness */
+    @media (max-width: 991px) {
+      .timeline-items::before {
+        left: 7px;
+      }
+      
+      .timeline-dot {
+        left: 0;
+      }
+      
+      .timeline-item:nth-child(odd) .timeline-content-container,
+      .timeline-item:nth-child(even) .timeline-content-container {
+        margin-left: 35px;
+        margin-right: 0;
+        text-align: left;
+      }
+      
+      .navbar {
+        display: none;
+      }
+      
+      .navbar.active {
+        display: block;
+      }
     }
 
-    /* Particle Background */
-    .particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      pointer-events: none;
-    }
-    
-    .particle {
-      position: absolute;
-      border-radius: 50%;
-      background: var(--main-color);
-      opacity: 0.2;
-      animation: float 15s infinite linear;
+    @media (min-width: 768px) {
+      .navbar {
+        display: block;
+        position: static;
+        width: auto;
+        background: transparent;
+        backdrop-filter: none;
+        border: none;
+      }
+      
+      .navbar a {
+        display: inline-block;
+        margin-left: 2rem;
+      }
+      
+      .navbar2 {
+        max-width: 250px;
+      }
     }
 
-    /* New language selector styles */
-    .lang-selector {
+    @media (max-width: 768px) {
+      html {
+        font-size: 55%;
+      }
+      
+      .home-img img {
+        width: 40vw;
+      }
+      
+      .services-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .testimonials-items {
+        min-width: 100%;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .header {
+        padding: 1.5rem 5%;
+      }
+      
+      .navbar a {
+        margin-left: 0;
+      }
+      
+      .home {
+        padding: 10rem 5% 5rem;
+      }
+      
+      .btn-group {
+        flex-direction: column;
+        width: 100%;
+      }
+      
+      .navbar2 {
+        max-width: 100%;
+        right: auto;
+        left: 0;
+        border-left: none;
+        border-bottom-left-radius: 0;
+      }
+    }
+
+     /* New language selector styles */
+     .lang-selector {
       position: relative;
       display: flex;
       align-items: center;
@@ -489,6 +517,8 @@
     
     /* Responsive adjustments */
     @media (max-width: 768px) {
+      
+      
       .lang-btn {
         padding: 0.2rem 0.6rem;
         font-size: 0.8rem;
@@ -510,98 +540,185 @@
       }
     }
 
-    /* Scroll Indicator */
-    .scroll-indicator {
-      position: fixed;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      z-index: 100;
-      opacity: 0;
-      transition: opacity 0.3s ease;
+    /* New animations */
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
     }
     
-    .scroll-indicator.visible {
-      opacity: 1;
+    .animate-pulse {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     }
     
-    .mouse {
-      width: 25px;
-      height: 40px;
-      border: 2px solid var(--main-color);
-      border-radius: 20px;
-      display: flex;
-      justify-content: center;
-      padding-top: 5px;
+    .animate-bounce {
+      animation: bounce 1s infinite;
     }
     
-    .wheel {
-      width: 5px;
-      height: 8px;
-      background-color: var(--main-color);
-      border-radius: 3px;
-      animation: scroll 1.5s infinite;
+    .animate-shake {
+      animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
     }
     
-    @keyframes scroll {
-      0% { transform: translateY(0); opacity: 1; }
-      100% { transform: translateY(10px); opacity: 0; }
+    /* Icon animations */
+    .icon-hover {
+      transition: all 0.3s ease;
     }
     
-    .arrow-down {
-      margin-top: 10px;
-      animation: bounce 1.5s infinite;
+    .icon-hover:hover {
+      transform: scale(1.2) rotate(10deg);
+      filter: drop-shadow(0 0 8px var(--main-color));
     }
     
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-      40% { transform: translateY(-10px); }
-      60% { transform: translateY(-5px); }
-    }
-
-    /* Section Title Animation */
-    .heading {
-      position: relative;
+    .service-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
       display: inline-block;
-      padding-bottom: 10px;
+      color: var(--main-color);
+      text-shadow: 0 0 15px var(--main-color);
+      transition: all 0.4s ease;
     }
     
-    .heading::after {
-      content: "";
+    .service-box:hover .service-icon {
+      transform: translateY(-10px) scale(1.1);
+      color: var(--text-color);
+      text-shadow: 0 0 25px var(--main-color);
+    }
+    
+    /* Timeline icon animations */
+    .timeline-icon {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 3px;
-      background: var(--main-color);
-      animation: underline 1.5s ease-in-out forwards;
-      animation-delay: 0.5s;
+      left: calc(50% - 15px);
+      top: 10px;
+      width: 30px;
+      height: 30px;
+      background: var(--border-color);
+      border: 3px solid var(--main-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      box-shadow: 0 0 15px var(--main-color);
+      transition: all 0.4s ease;
     }
     
-    @keyframes underline {
-      to { width: 100%; }
+    .timeline-item:hover .timeline-icon {
+      transform: scale(1.3);
+      background: var(--main-color);
+      box-shadow: 0 0 25px var(--main-color);
+    }
+    
+    .timeline-icon i {
+      color: var(--main-color);
+      font-size: 1.2rem;
+    }
+    
+    .timeline-item:hover .timeline-icon i {
+      color: var(--border-color);
+    }
+    
+    /* Form input animations */
+    .input-group input,
+    .input-group textarea {
+      transition: all 0.3s ease;
+    }
+    
+    .input-group input:focus,
+    .input-group textarea:focus {
+      border-color: var(--main-color);
+      box-shadow: 0 0 15px var(--main-color);
+      transform: translateY(-3px);
+    }
+    
+    /* Button hover effect */
+    .btn-hover {
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    .btn-hover:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: 0.5s;
+    }
+    
+    .btn-hover:hover:before {
+      left: 100%;
+    }
+    
+    /* Floating elements */
+    .floating {
+      position: absolute;
+      z-index: -1;
+      opacity: 0.7;
+      filter: blur(1px);
+    }
+    
+    /* Particle effects */
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+    
+    .particle {
+      position: absolute;
+      background: var(--main-color);
+      border-radius: 50%;
+      opacity: 0;
+      animation: particleAnimation 10s linear infinite;
+    }
+    
+    @keyframes particleAnimation {
+      0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      10% {
+        opacity: 1;
+        width: 6px;
+        height: 6px;
+      }
+      90% {
+        opacity: 0.5;
+      }
+      100% {
+        transform: translateY(-100vh) translateX(calc((var(--random-x) * 100vw));
+        opacity: 0;
+        width: 2px;
+        height: 2px;
+      }
     }
   </style>
 </head>
 <body class="bg-border-color text-text-color font-poppins">
-  <!-- Particle Background -->
-  <div class="particles" id="particles"></div>
+    <!-- Particle Background -->
+    <div class="particles"></div>
   
-  <!-- Scroll Indicator -->
-  <div class="scroll-indicator" id="scrollIndicator">
-    <div class="mouse">
-      <div class="wheel"></div>
+    <!-- Floating decorative elements -->
+    <div class="floating animate-float" style="top: 10%; left: 5%;">
+      <i class='bx bxs-circle text-color text-2xl opacity-30'></i>
     </div>
-    <div class="arrow-down text-color text-2xl">
-      <i class='bx bx-chevron-down'></i>
+    <div class="floating animate-float" style="top: 40%; right: 8%; animation-delay: 2s;">
+      <i class='bx bxs-square text-color text-3xl opacity-20'></i>
     </div>
-  </div>
-  
+    <div class="floating animate-float" style="bottom: 20%; left: 15%; animation-delay: 4s;">
+      <i class='bx bxs-star text-color text-xl opacity-40'></i>
+    </div>
+
   <!-- Header Section -->
-  <header class="header fixed top-0 left-0 w-full py-4 px-[5%] bg-black/30 backdrop-blur-md flex justify-between items-center z-50 shadow-md">
+  <header class="header fixed top-0 left-0 w-full py-4 px-[12%] bg-black/30 backdrop-blur-md flex justify-between items-center z-50 shadow-md">
     <a href="#home" class="logo text-3xl text-text-color font-extrabold cursor-pointer transition duration-300 hover:scale-110">
       Rajendra <span class="text-color" style="text-shadow: 0 0 25px var(--main-color)">A_F</span>
     </a>
@@ -634,111 +751,130 @@
           <div class="flag flag-en"></div>
           <span>EN</span>
         </button>
-      </div>
+    </div>
 
-      <div class="flex items-center">
-        <i class='bx bx-palette text-3xl text-color cursor-pointer mr-4 hover:scale-110 transition-transform' id="color-icon"></i>
-        <i class='bx bx-menu text-3xl text-color cursor-pointer md:hidden hover:scale-110 transition-transform' id="menu-icon"></i>
-      </div>
+    <div class="flex items-center">
+      <i class='bx bx-palette text-3xl text-color cursor-pointer mr-4' id="color-icon"></i>
+      <i class='bx bx-menu text-3xl text-color cursor-pointer md:hidden' id="menu-icon"></i>
     </div>
   </header>
   
-  <!-- Home Section -->
-  <section class="home min-h-screen py-24 px-[5%] flex flex-col-reverse md:flex-row justify-center items-center gap-8 md:gap-15" id="home">
+  <section class="home min-h-screen py-24 px-[12%] flex flex-col-reverse md:flex-row justify-center items-center gap-8 md:gap-15" id="home">
     <div class="home-content flex flex-col items-center md:items-start text-center md:text-left max-w-2xl">
-      <h1 class="text-4xl md:text-6xl font-bold animate-fade-in">Hi, It's <span class="text-color">Raj</span></h1>
-      <h3 class="text-animation text-2xl md:text-3xl my-4 min-w-[280px] h-12 animate-fade-in" style="animation-delay: 0.2s">I'm a <span></span></h3>
-      <p class="text-base md:text-lg leading-relaxed mb-6 animate-fade-in" style="animation-delay: 0.4s">
+      <h1 class="text-4xl md:text-6xl font-bold">Hi, It's <span class="text-color animate-pulse">Raj</span></h1>
+      <h3 class="text-animation text-2xl md:text-3xl my-4 min-w-[280px] h-12">I'm a <span></span></h3>
+      <p class="text-base md:text-lg leading-relaxed mb-6">
+        <i class="fas fa-quote-left text-color mr-2"></i>
         Saya seorang programmer junior dengan spesialisasi di backend, namun juga memiliki kemampuan di frontend. 
         Saya sedang mempelajari CSS secara intensif karena memahami bahwa CSS adalah sebuah seni yang membutuhkan ketekunan.
+        <i class="fas fa-quote-right text-color ml-2"></i>
       </p>
       
-      <div class="social-icons flex my-4 animate-fade-in" style="animation-delay: 0.6s">
+      <div class="social-icons flex my-4">
+        <!-- Existing social icons with animation classes -->
         <a href="https://www.linkedin.com/in/raj-rajendra-athallah-fawwaz-443957317?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
-          class="flex justify-center items-center w-12 h-12 border-2 border-color text-2xl rounded-full text-color mr-4 transition duration-300 hover:bg-main-color hover:text-border-color hover:scale-110 hover:-translate-y-2 hover:shadow-main-color">
+          class="icon-hover flex justify-center items-center w-[4.5rem] h-[4.5rem] border-2 border-color text-2xl rounded-full text-color mr-4 transition duration-300 hover:bg-main-color hover:text-border-color hover:scale-110 hover:-translate-y-2 hover:shadow-main-color">
           <i class='bx bxl-linkedin'></i>
         </a>
         <a href="https://github.com/rajendrazero" 
-          class="flex justify-center items-center w-12 h-12 border-2 border-color text-2xl rounded-full text-color mr-4 transition duration-300 hover:bg-main-color hover:text-border-color hover:scale-110 hover:-translate-y-2 hover:shadow-main-color">
+        class="icon-hover flex justify-center items-center w-[4.5rem] h-[4.5rem] border-2 border-color text-2xl rounded-full text-color mr-4 transition duration-300 hover:bg-main-color hover:text-border-color hover:scale-110 hover:-translate-y-2 hover:shadow-main-color">
           <i class='bx bxl-github'></i>
         </a>
         <a href="https://www.instagram.com/rfz08_/" 
-          class="flex justify-center items-center w-12 h-12 border-2 border-color text-2xl rounded-full text-color mr-4 transition duration-300 hover:bg-main-color hover:text-border-color hover:scale-110 hover:-translate-y-2 hover:shadow-main-color">
+        class="icon-hover flex justify-center items-center w-[4.5rem] h-[4.5rem] border-2 border-color text-2xl rounded-full text-color mr-4 transition duration-300 hover:bg-main-color hover:text-border-color hover:scale-110 hover:-translate-y-2 hover:shadow-main-color">
           <i class='bx bxl-instagram-alt'></i>
         </a>
         <a href="https://wa.me/62882017296806?text=Halo,%20apa%20kabar,%20perkenalkan%20nama%20saya%20(nama%20kamu),%20saya%20ingin%20bertanya%20mengenai%20(tujuan%20kamu)" 
-          class="flex justify-center items-center w-12 h-12 border-2 border-color text-2xl rounded-full text-color transition duration-300 hover:bg-main-color hover:text-border-color hover:scale-110 hover:-translate-y-2 hover:shadow-main-color">
-          <i class='bx bxl-whatsapp'></i>
+        class="icon-hover flex justify-center items-center w-[4.5rem] h-[4.5rem] border-2 border-color text-2xl rounded-full text-color mr-4 transition duration-300 hover:bg-main-color hover:text-border-color hover:scale-110 hover:-translate-y-2 hover:shadow-main-color">
+          <i class='bx bxl-whatsapp text-[2rem] font-medium leading-[1.8] max-w-[1000px]'></i>
         </a>
       </div>
       
-      <div class="btn-group flex flex-col sm:flex-row gap-4 mt-4 animate-fade-in" style="animation-delay: 0.8s">
-        <a href="#" class="btn inline-block py-3 px-6 bg-main-color shadow-main-color rounded-full text-base font-semibold text-border-color transition duration-300 hover:scale-105 hover:shadow-main-color-lg">
-          Hire
+      <div class="btn-group flex flex-col sm:flex-row gap-4 mt-4">
+        <a href="#" class="btn-hover btn inline-block py-3 px-6 bg-main-color shadow-main-color rounded-full text-base font-semibold text-border-color transition duration-300 hover:scale-105 hover:shadow-main-color-lg">
+          <i class="fas fa-handshake mr-2"></i>Hire
         </a>  
-        <a href="#contact" class="btn inline-block py-3 px-6 bg-border-color border-2 border-color shadow-lg shadow-transparent rounded-full text-base font-semibold text-color transition duration-300 hover:bg-[var(--main-color)] hover:text-[var(--border-color)] hover:scale-105 hover:shadow-main-color-lg">
-          Contact
+        <a href="#contact" class="btn-hover btn inline-block py-3 px-6 bg-border-color border-2 border-color shadow-lg shadow-transparent rounded-full text-base font-semibold text-color transition duration-300 hover:bg-[var(--main-color)] hover:text-[var(--border-color)] hover:scale-105 hover:shadow-main-color-lg">
+          <i class="fas fa-envelope mr-2"></i>Contact
         </a>
       </div>
     </div>
     
-    <div class="home-img">
-      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='90' fill='%2300ffee' opacity='0.2'/%3E%3Ccircle cx='100' cy='100' r='70' fill='%2300ffee' opacity='0.4'/%3E%3Ccircle cx='100' cy='100' r='50' fill='%2300ffee' opacity='0.6'/%3E%3Ccircle cx='100' cy='100' r='30' fill='%2300ffee' opacity='0.8'/%3E%3C/svg%3E" alt="Profile" class="w-48 md:w-56 lg:w-64 rounded-full shadow-main-color transition duration-400 parallax">
+    <div class="home-img relative">
+      <img src="gambar/image.png" alt="Profile" class="w-[32vw] rounded-full shadow-main-color transition duration-400 animate-float">
+      <div class="absolute inset-0 rounded-full border-4 border-transparent animate-pulse" style="animation-duration: 3s; box-shadow: 0 0 30px var(--main-color); z-index: -1;"></div>
+      <div class="absolute -inset-4 rounded-full border-2 border-color opacity-30 animate-pulse" style="animation-duration: 4s;"></div>
     </div>
   </section>
   
-  <!-- Education Section - Fixed -->
-  <section class="education py-16 px-[5%] bg-second-border-color" id="education">
-    <h2 class="heading text-4xl md:text-6xl text-center my-10">Education</h2>
+  <!-- Education Section -->
+  <section class="education min-h-screen py-24 px-[12%] bg-second-border-color flex justify-center items-center flex-col" id="education">
+    <h2 class="heading text-4xl md:text-6xl text-center my-10">Education <i class="fas fa-graduation-cap text-color ml-4"></i></h2>
     
     <div class="timeline-items">
       <div class="timeline-item">
-        <div class="timeline-dot"></div>
+        <div class="timeline-icon">
+          <i class="fas fa-school"></i>
+        </div>
         <div class="timeline-content-container">
-          <div class="timeline-date">2020</div>
+          <div class="timeline-date">2020 <i class="fas fa-calendar-alt text-color ml-2"></i></div>
           <div class="timeline-content">
-            <h3 class="text-xl font-medium mb-2">MTs Darul Aman</h3>
+            <h3 class="text-xl font-medium mb-2"><i class="fas fa-book-reader text-color mr-2"></i>MTs Darul Aman</h3>
             <p class="text-base leading-relaxed">
+              <i class="fas fa-quote-left text-color mr-1 opacity-70"></i>
               Saya memulai jenjang pendidikan setara SMP di MTs Darul Aman pada tahun 2020. Di sinilah saya mulai mempelajari pemrograman dan akhirnya bisa membuat website ini pada 14 Juni 2024.
+              <i class="fas fa-quote-right text-color ml-1 opacity-70"></i>
             </p>
           </div>
         </div>
       </div>
       
       <div class="timeline-item">
-        <div class="timeline-dot"></div>
+        <div class="timeline-icon">
+          <i class="fas fa-laptop-code"></i>
+        </div>
         <div class="timeline-content-container">
-          <div class="timeline-date">2023</div>
+          <div class="timeline-date">2023 <i class="fas fa-calendar-alt text-color ml-2"></i></div>
           <div class="timeline-content">
-            <h3 class="text-xl font-medium mb-2">SMKN-9</h3>
+            <h3 class="text-xl font-medium mb-2"><i class="fas fa-code text-color mr-2"></i>SMKN-9</h3>
             <p class="text-base leading-relaxed">
+              <i class="fas fa-quote-left text-color mr-1 opacity-70"></i>
               Saat ini saya bersekolah di SMKN-9 dengan jurusan Rekayasa Perangkat Lunak (RPL). Saya mendalami berbagai aspek pemrograman baik secara akademis maupun otodidak.
+              <i class="fas fa-quote-right text-color ml-1 opacity-70"></i>
             </p>
           </div>
         </div>
       </div>
-      
+
       <div class="timeline-item">
-        <div class="timeline-dot"></div>
+        <div class="timeline-icon">
+          <i class="fas fa-school"></i>
+        </div>
         <div class="timeline-content-container">
-          <div class="timeline-date">2024</div>
+          <div class="timeline-date">2024 <i class="fas fa-calendar-alt text-color ml-2"></i></div>
           <div class="timeline-content">
-            <h3 class="text-xl font-medium mb-2">Belajar Otodidak</h3>
+            <h3 class="text-xl font-medium mb-2"><i class="fas fa-book-reader text-color mr-2"></i>Belajar Otodidak</h3>
             <p class="text-base leading-relaxed">
+              <i class="fas fa-quote-left text-color mr-1 opacity-70"></i>
               Saat ini saya fokus memahami dasar-dasar setiap bahasa pemrograman yang saya pelajari untuk membangun fondasi yang kuat.
+              <i class="fas fa-quote-right text-color ml-1 opacity-70"></i>
             </p>
           </div>
         </div>
       </div>
-      
+
       <div class="timeline-item">
-        <div class="timeline-dot"></div>
+        <div class="timeline-icon">
+          <i class="fas fa-laptop-code"></i>
+        </div>
         <div class="timeline-content-container">
-          <div class="timeline-date">2024</div>
+          <div class="timeline-date">2024 <i class="fas fa-calendar-alt text-color ml-2"></i></div>
           <div class="timeline-content">
-            <h3 class="text-xl font-medium mb-2">Job list</h3>
+            <h3 class="text-xl font-medium mb-2"><i class="fas fa-code text-color mr-2"></i>Job List</h3>
             <p class="text-base leading-relaxed">
+              <i class="fas fa-quote-left text-color mr-1 opacity-70"></i>
               Saat ini saya belum memiliki pengalaman kerja profesional karena baru serius mempelajari pemrograman selama 1 tahun terakhir.
+              <i class="fas fa-quote-right text-color ml-1 opacity-70"></i>
             </p>
           </div>
         </div>
@@ -746,68 +882,73 @@
     </div>   
   </section>
   
-  <!-- Services Section -->
-  <section class="services py-16 px-[5%] bg-border-color" id="services">
-    <h2 class="heading text-4xl md:text-6xl text-center my-10">Services</h2>
-    
-    <div class="services-container grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-      <div class="service-box">
-        <div class="service-info flex flex-col text-left p-6">
-          <div class="flex items-center mb-4">
-            <i class='bx bx-desktop text-4xl text-color mr-4'></i>
-            <h4 class="text-xl md:text-2xl font-extrabold">UI Design</h4>
-          </div>
-          <p class="text-sm md:text-base">
-            UI Design berfokus pada pembuatan antarmuka yang menarik dan intuitif untuk meningkatkan pengalaman visual pengguna dalam menggunakan website, aplikasi web, maupun aplikasi mobile.
-          </p>
-        </div>
-      </div>
+    <!-- Services Section -->
+    <section class="services min-h-screen py-24 px-[12%] bg-border-color flex justify-center items-center flex-col" id="services">
+      <h2 class="heading text-4xl md:text-6xl text-center my-10">Services <i class="fas fa-cogs text-color ml-4 animate-spin" style="animation-duration: 5s;"></i></h2>
       
-      <div class="service-box">
-        <div class="service-info flex flex-col text-left p-6">
-          <div class="flex items-center mb-4">
-            <i class='bx bx-mobile-alt text-4xl text-color mr-4'></i>
-            <h4 class="text-xl md:text-2xl font-extrabold">UX Design</h4>
+      <div class="services-container grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+        <div class="service-box bg-main-color rounded-2xl border-2 border-transparent transition duration-400 hover:bg-service-color hover:text-border-color hover:border-color hover:scale-[1.03]">
+          <div class="service-info flex flex-col text-left p-6 items-center">
+            <div class="service-icon">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <h4 class="text-xl md:text-2xl font-extrabold mb-4">UI Design</h4>
+            <p class="text-sm md:text-base">
+              UI Design berfokus pada pembuatan antarmuka yang menarik dan intuitif untuk meningkatkan pengalaman visual pengguna dalam menggunakan website, aplikasi web, maupun aplikasi mobile.
+            </p>
           </div>
-          <p class="text-sm md:text-base">
-            UX Design berperan dalam merancang pengalaman pengguna yang optimal dengan memastikan setiap interaksi memberikan kesan positif dan memudahkan pengguna dalam mencapai tujuannya.
-          </p>
         </div>
-      </div>
-      
-      <div class="service-box">
-        <div class="service-info flex flex-col text-left p-6">
-          <div class="flex items-center mb-4">
-            <i class='bx bx-code-alt text-4xl text-color mr-4'></i>
-            <h4 class="text-xl md:text-2xl font-extrabold">Frontend Developer</h4>
+        
+        <div class="service-box bg-main-color rounded-2xl border-2 border-transparent transition duration-400 hover:bg-service-color hover:text-border-color hover:border-color hover:scale-[1.03]">
+          <div class="service-info flex flex-col text-left p-6 items-center">
+            <div class="service-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h4 class="text-xl md:text-2xl font-extrabold mb-4">UX Design</h4>
+            <p class="text-sm md:text-base">
+              UX Design berperan dalam merancang pengalaman pengguna yang optimal dengan memastikan setiap interaksi memberikan kesan positif dan memudahkan pengguna dalam mencapai tujuannya.
+            </p>
           </div>
-          <p class="text-sm md:text-base">
-            Frontend Developer bertanggung jawab mengimplementasikan desain antarmuka dan memastikan setiap elemen visual berfungsi dengan baik dan responsif di berbagai perangkat.
-          </p>
         </div>
-      </div>
-      
-      <div class="service-box">
-        <div class="service-info flex flex-col text-left p-6">
-          <div class="flex items-center mb-4">
-            <i class='bx bx-server text-4xl text-color mr-4'></i>
-            <h4 class="text-xl md:text-2xl font-extrabold">Backend Developer</h4>
+
+        <div class="service-box bg-main-color rounded-2xl border-2 border-transparent transition duration-400 hover:bg-service-color hover:text-border-color hover:border-color hover:scale-[1.03]">
+          <div class="service-info flex flex-col text-left p-6 items-center">
+            <div class="service-icon">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <h4 class="text-xl md:text-2xl font-extrabold mb-4">Frontend Developer</h4>
+            <p class="text-sm md:text-base">
+              Frontend Developer bertanggung jawab mengimplementasikan desain antarmuka dan memastikan setiap elemen visual berfungsi dengan baik dan responsif di berbagai perangkat.
+            </p>
           </div>
-          <p class="text-sm md:text-base">
-            Backend Developer bekerja di balik layar untuk membangun infrastruktur aplikasi, termasuk database, API, dan logika bisnis yang menjadi fondasi dari setiap sistem.
-          </p>
         </div>
-      </div>
+
+        <div class="service-box bg-main-color rounded-2xl border-2 border-transparent transition duration-400 hover:bg-service-color hover:text-border-color hover:border-color hover:scale-[1.03]">
+          <div class="service-info flex flex-col text-left p-6 items-center">
+            <div class="service-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h4 class="text-xl md:text-2xl font-extrabold mb-4">Backend Developer</h4>
+            <p class="text-sm md:text-base">
+              Backend Developer bekerja di balik layar untuk membangun infrastruktur aplikasi, termasuk database, API, dan logika bisnis yang menjadi fondasi dari setiap sistem.
+            </p>
+          </div>
+        </div>
     </div>
   </section>
   
   <!-- Testimonials Section -->
-  <section class="testimonials py-16 px-[5%] bg-second-border-color" id="testimonials">
-    <h2 class="heading text-4xl md:text-6xl text-center my-10">Testimonials</h2>
+  <section class="testimonials min-h-screen py-24 px-[12%] bg-second-border-color flex justify-center items-center flex-col" id="testimonials">
+    <h2 class="heading text-4xl md:text-6xl text-center my-10">Testimonials <i class="fas fa-comments text-color ml-4 animate-bounce"></i></h2>
     
     <div class="wrapper grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
       <a href="https://perma-al-hasanah.github.io/" class="testimonials-items bg-black/70 border-2 border-gray-500/20 rounded-2xl p-6 flex flex-col items-center justify-center text-center gap-4 transition duration-400 hover:border-color hover:shadow-main-color">
-        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='90' fill='%2300ffee'/%3E%3Ctext x='50%25' y='50%25' font-size='20' text-anchor='middle' fill='black' dy='.3em'%3ERM%3C/text%3E%3C/svg%3E" alt="Perma Al-Hasanah" class="w-32 h-32 object-cover rounded-full border-2 border-color shadow-main-color">
+        <div class="relative">
+          <img src="gambar/rm.png" alt="Perma Al-Hasanah" class="w-32 h-32 object-cover rounded-full border-2 border-color shadow-main-color">
+          <div class="absolute -top-2 -right-2 bg-color text-border-color rounded-full w-10 h-10 flex items-center justify-center">
+            <i class="fas fa-quote-right"></i>
+          </div>
+        </div>
         <h2 class="text-xl md:text-2xl">Perma Al-Hasanah</h2>
         <div class="rating text-yellow-400 text-xl">
           <i class='bx bxs-star'></i>
@@ -817,12 +958,19 @@
           <i class='bx bxs-star'></i>
         </div>
         <p class="text-sm md:text-base">
+          <i class="fas fa-quote-left text-color mr-1 opacity-50"></i>
           Saya sangat mengapresiasi kerja keras Rajendra. Dalam satu hari, ia berhasil membuat website resmi untuk Perma Al-Hasanah dengan hasil yang luar biasa.
+          <i class="fas fa-quote-right text-color ml-1 opacity-50"></i>
         </p>
       </a>
       
-      <a href="https://github.com/rajendrazero/sertifikat" class="testimonials-items bg-black/70 border-2 border-gray-500/20 rounded-2xl p-6 flex flex-col items-center justify-center text-center gap-4 transition duration-400 hover:border-color hover:shadow-main-color">
-        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23f8f9fa'/%3E%3Cpath d='M50,50 L150,50 L150,150 L50,150 Z' fill='%23d1e7dd'/%3E%3Ctext x='100' y='100' font-size='20' text-anchor='middle' fill='%23000'%3E📜%3C/text%3E%3C/svg%3E" alt="Sertifikat" class="w-32 h-32 rounded-full border-2 border-color shadow-main-color">
+      <a href="hhttps://github.com/rajendrazero/sertifikat" class="testimonials-items bg-black/70 border-2 border-gray-500/20 rounded-2xl p-6 flex flex-col items-center justify-center text-center gap-4 transition duration-400 hover:border-color hover:shadow-main-color">
+        <div class="relative">
+          <img src="gambar/sololearn-Front_End.png" alt="Sertifikat" class="w-32 h-32 object-cover rounded-full border-2 border-color shadow-main-color">
+          <div class="absolute -top-2 -right-2 bg-color text-border-color rounded-full w-10 h-10 flex items-center justify-center">
+            <i class="fas fa-quote-right"></i>
+          </div>
+        </div>
         <h2 class="text-xl md:text-2xl">Sertifikat</h2>
         <div class="rating text-yellow-400 text-xl">
           <i class='bx bxs-star'></i>
@@ -832,12 +980,19 @@
           <i class='bx bxs-star'></i>
         </div>
         <p class="text-sm md:text-base">
+          <i class="fas fa-quote-left text-color mr-1 opacity-50"></i>
           Saya telah mengikuti berbagai kegiatan dan pelatihan untuk meningkatkan kemampuan saya dalam bidang pemrograman dan desain web.
+          <i class="fas fa-quote-right text-color ml-1 opacity-50"></i>
         </p>
       </a>
-      
+
       <a href="https://rajendrazero.github.io/Permen-Pagi-Itu/" class="testimonials-items bg-black/70 border-2 border-gray-500/20 rounded-2xl p-6 flex flex-col items-center justify-center text-center gap-4 transition duration-400 hover:border-color hover:shadow-main-color">
-        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='90' fill='%23ffcc00'/%3E%3Ctext x='100' y='100' font-size='40' text-anchor='middle' fill='%23000' dy='.3em'%3E🍬%3C/text%3E%3C/svg%3E" alt="Program Quotes" class="w-32 h-32 rounded-full border-2 border-color shadow-main-color">
+        <div class="relative">
+          <img src="gambar/permen-pagi-itu.jpg" alt="Program Quotes" class="w-32 h-32 object-cover rounded-full border-2 border-color shadow-main-color">
+          <div class="absolute -top-2 -right-2 bg-color text-border-color rounded-full w-10 h-10 flex items-center justify-center">
+            <i class="fas fa-quote-right"></i>
+          </div>
+        </div>
         <h2 class="text-xl md:text-2xl">Program Quotes</h2>
         <div class="rating text-yellow-400 text-xl">
           <i class='bx bxs-star'></i>
@@ -847,35 +1002,37 @@
           <i class='bx bxs-star'></i>
         </div>
         <p class="text-sm md:text-base">
+          <i class="fas fa-quote-left text-color mr-1 opacity-50"></i>
           Saya membuat website quotes interaktif yang menampilkan berbagai kutipan inspiratif dengan fitur-fitur menarik seperti karaoke teks.
+          <i class="fas fa-quote-right text-color ml-1 opacity-50"></i>
         </p>
       </a>
     </div>
   </section>
   
   <!-- Contact Section -->
-  <section class="contact py-16 px-[5%] bg-border-color" id="contact">
-    <h2 class="heading text-4xl md:text-6xl text-center my-10">Contact <span class="text-color">Me</span></h2>
+  <section class="contact min-h-screen py-24 px-[12%] bg-border-color flex justify-center items-center flex-col" id="contact">
+    <h2 class="heading text-4xl md:text-6xl text-center my-10">Contact <span class="text-color">Me</span> <i class="fas fa-paper-plane text-color ml-4 animate-float"></i></h2>
     
-    <form action="https://formspree.io/f/xpwaaoak" method="POST" class="max-w-4xl mx-auto">
+    <form action="https://formspree.io/f/xpwaaoak" method="POST" class="max-w-4xl mx-auto w-full">
       <div class="input-group flex flex-col md:flex-row gap-4 mb-6">
         <div class="input-box w-full">
-          <div class="relative mb-4">
+          <div class="relative">
             <input type="text" placeholder="Full Name" name="name" 
               class="w-full p-4 pl-12 text-base bg-second-border-color rounded-xl border-2 border-color">
-            <i class='bx bx-user text-color text-xl absolute left-4 top-1/2 transform -translate-y-1/2'></i>
+            <i class="fas fa-user absolute left-4 top-1/2 transform -translate-y-1/2 text-color"></i>
           </div>
-          <div class="relative">
+          <div class="relative mt-4">
             <input type="email" placeholder="Email" name="email" 
               class="w-full p-4 pl-12 text-base bg-second-border-color rounded-xl border-2 border-color">
-            <i class='bx bx-envelope text-color text-xl absolute left-4 top-1/2 transform -translate-y-1/2'></i>
+            <i class="fas fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-color"></i>
           </div>
         </div>
         <div class="input-box w-full">
           <div class="relative">
-            <input type="number" placeholder="Phone Number" name="phone" 
+            <input type="number" placeholder="Phone Number" name="nomor hp" 
               class="w-full p-4 pl-12 text-base bg-second-border-color rounded-xl border-2 border-color">
-            <i class='bx bx-phone text-color text-xl absolute left-4 top-1/2 transform -translate-y-1/2'></i>
+            <i class="fas fa-phone-alt absolute left-4 top-1/2 transform -translate-y-1/2 text-color"></i>
           </div>
         </div>
       </div>
@@ -883,10 +1040,10 @@
         <div class="relative">
           <textarea cols="30" rows="6" placeholder="Your Message" name="message"
             class="w-full p-4 pl-12 text-base bg-second-border-color rounded-xl border-2 border-color"></textarea>
-          <i class='bx bx-message-dots text-color text-xl absolute left-4 top-6'></i>
+          <i class="fas fa-comment-dots absolute left-4 top-6 text-color"></i>
         </div>
-        <button type="submit" class="btn inline-flex items-center py-3 px-8 bg-main-color shadow-main-color rounded-full text-base font-semibold text-border-color mt-6 transition duration-300 hover:scale-105 hover:shadow-main-color-lg">
-          <i class='bx bx-send mr-2'></i> Send Message
+        <button type="submit" class="btn-hover btn inline-block py-3 px-8 bg-main-color shadow-main-color rounded-full text-base font-semibold text-border-color mt-6 transition duration-300 hover:scale-105 hover:shadow-main-color-lg">
+          <i class="fas fa-paper-plane mr-2"></i>Send Message
         </button>
       </div>
     </form>
@@ -907,7 +1064,7 @@
         class="text-xl text-color border-2 border-color w-10 h-10 inline-flex items-center justify-center rounded-full mx-1 transition duration-300 hover:bg-main-color hover:text-border-color hover:scale-110 hover:-translate-y-2 hover:shadow-main-color">
         <i class='bx bxl-instagram-alt'></i>
       </a>
-      <a href="#" 
+      <a href="/program/html/game balap/index.html" 
         class="text-xl text-color border-2 border-color w-10 h-10 inline-flex items-center justify-center rounded-full mx-1 transition duration-300 hover:bg-main-color hover:text-border-color hover:scale-110 hover:-translate-y-2 hover:shadow-main-color">
         <i class='bx bx-game'></i>
       </a>
@@ -949,7 +1106,6 @@
       navbar2.classList.remove('active');
       menuIcon.classList.remove('bx-x');
       colorIcon.classList.remove('bx-x');
-      document.body.classList.remove('menu-open');
     }
     
     // Menu icon click handler
@@ -967,7 +1123,6 @@
       
       // Toggle menu icon
       this.classList.toggle('bx-x');
-      document.body.classList.toggle('menu-open');
     });
     
     // Color icon click handler
@@ -985,7 +1140,6 @@
       
       // Toggle color icon
       this.classList.toggle('bx-x');
-      document.body.classList.toggle('menu-open');
     });
     
     // Close menus when clicking outside
@@ -1000,23 +1154,12 @@
     function color(newColor) {
       document.documentElement.style.setProperty('--main-color', newColor);
       closeAllMenus();
-      
-      // Update particle colors
-      createParticles();
     }
     
     // Sticky navbar
     window.addEventListener('scroll', function() {
       const header = document.querySelector('.header');
       header.classList.toggle('shadow-md', window.scrollY > 0);
-      
-      // Show/hide scroll indicator
-      const scrollIndicator = document.getElementById('scrollIndicator');
-      if (window.scrollY < 100) {
-        scrollIndicator.classList.add('visible');
-      } else {
-        scrollIndicator.classList.remove('visible');
-      }
     });
     
     // Smooth scrolling for anchor links
@@ -1036,86 +1179,49 @@
         }
       });
     });
-    
-    // Scroll reveal animation
-    function scrollReveal() {
-      const elements = document.querySelectorAll('.timeline-item, .service-box, .testimonials-items, .input-group, .input-group-2');
-      elements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        const isVisible = (rect.top <= window.innerHeight - 100 && rect.bottom >= 0);
-        
-        if (isVisible) {
-          el.classList.add('visible');
-        }
-      });
-    }
-    
-    // Initialize scroll reveal on load and scroll
-    window.addEventListener('load', scrollReveal);
-    window.addEventListener('scroll', scrollReveal);
-    
-    // Create particle background
+
+    // Particle effect
     function createParticles() {
-      const particlesContainer = document.getElementById('particles');
-      particlesContainer.innerHTML = '';
-      
+      const particlesContainer = document.querySelector('.particles');
       const particleCount = 30;
-      const mainColor = getComputedStyle(document.documentElement).getPropertyValue('--main-color').trim();
       
       for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.classList.add('particle');
         
-        // Random size (1px to 4px)
-        const size = Math.random() * 3 + 1;
+        // Random properties
+        const size = Math.random() * 5 + 2;
+        const posX = Math.random() * 100;
+        const delay = Math.random() * 10;
+        const duration = Math.random() * 10 + 5;
+        
+        particle.style.setProperty('--random-x', Math.random() * 2 - 1);
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
-        
-        // Random position
-        particle.style.left = `${Math.random() * 100}%`;
-        particle.style.top = `${Math.random() * 100}%`;
-        
-        // Random animation duration (10s to 20s)
-        const duration = Math.random() * 10 + 10;
+        particle.style.left = `${posX}%`;
+        particle.style.bottom = '0';
+        particle.style.animationDelay = `${delay}s`;
         particle.style.animationDuration = `${duration}s`;
-        
-        // Random animation delay
-        particle.style.animationDelay = `${Math.random() * 5}s`;
-        
-        // Set color
-        particle.style.background = mainColor;
         
         particlesContainer.appendChild(particle);
       }
     }
     
-    // Initialize particles
-    createParticles();
-    
-    // Parallax effect for home image
-    window.addEventListener('scroll', function() {
-      const homeImg = document.querySelector('.home-img img');
-      if (homeImg) {
-        const scrollPosition = window.scrollY;
-        homeImg.style.transform = `translateY(${scrollPosition * 0.4}px)`;
-      }
-    });
-    
-    // Language change function
-    function changeLanguage(lang) {
-      const idBtn = document.getElementById('lang-id');
-      const enBtn = document.getElementById('lang-en');
+    // Run on load
+    window.addEventListener('load', () => {
+      createParticles();
       
-      if (lang === 'id') {
-        idBtn.classList.add('active');
-        enBtn.classList.remove('active');
-        // Implement Indonesian content changes here
-      } else {
-        enBtn.classList.add('active');
-        idBtn.classList.remove('active');
-        // Implement English content changes here
-      }
-    }
+      // Add hover effect to service boxes
+      document.querySelectorAll('.service-box').forEach(box => {
+        box.addEventListener('mouseenter', () => {
+          box.classList.add('animate-shake');
+        });
+        
+        box.addEventListener('animationend', () => {
+          box.classList.remove('animate-shake');
+        });
+      });
+    });
   </script>
 </body>
 </html>
