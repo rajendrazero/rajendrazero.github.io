@@ -222,6 +222,5 @@
     createParticles();
     setupScrollEffects();
     createAnimatedBg();
-    setupIntersectionObserver();
     setupScrollEffects();
   });
