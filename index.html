@@ -42,99 +42,62 @@
 </head>
 <body class="bg-border-color text-text-color font-poppins">
     <!-- Particle Background -->
-    <div class="particles"></div>
+  <div class="particles" aria-hidden="true"></div>
 
-    <!-- Animated Background -->
-    <div class="animated-bg" id="animated-bg"></div>
-  
-    <!-- Floating decorative elements -->
-    <div class="floating animate-float" style="top: 10%; left: 5%;">
-      <i class='bx bxs-circle text-color text-2xl opacity-30'></i>
-    </div>
-    <div class="floating animate-float" style="top: 40%; right: 8%; animation-delay: 2s;">
-      <i class='bx bxs-square text-color text-3xl opacity-20'></i>
-    </div>
-    <div class="floating animate-float" style="bottom: 20%; left: 15%; animation-delay: 4s;">
-      <i class='bx bxs-star text-color text-xl opacity-40'></i>
-    </div>
+  <!-- Animated Background -->
+  <div class="animated-bg" id="animated-bg" aria-hidden="true"></div>
 
-  <!-- Header Section -->
+  <!-- Floating decorative elements -->
+  <div class="floating animate-float" style="top: 10%; left: 5%;" aria-hidden="true">
+    <i class='bx bxs-circle text-color text-2xl opacity-30'></i>
+  </div>
+  <div class="floating animate-float" style="top: 40%; right: 8%; animation-delay: 2s;" aria-hidden="true">
+    <i class='bx bxs-square text-color text-3xl opacity-20'></i>
+  </div>
+  <div class="floating animate-float" style="bottom: 20%; left: 15%; animation-delay: 4s;" aria-hidden="true">
+    <i class='bx bxs-star text-color text-xl opacity-40'></i>
+  </div>
+
+  <!-- Header -->
   <header class="header fixed top-0 left-0 w-full py-4 px-[12%] bg-black/30 backdrop-blur-md flex justify-between items-center z-50 shadow-md">
     <a href="#home" class="logo text-2xl text-text-color font-extrabold cursor-pointer transition duration-300 hover:scale-110">
       Rajendra <span class="text-color" style="text-shadow: 0 0 25px var(--main-color)">A_F</span>
     </a>
-    
-    <nav class="navbar hidden">
-      <a href="#home"
-        class="block text-[1.2rem] py-4 my-6 text-center border-b-2 border-transparent transition-all duration-300 hover:text-[1.5rem] hover:text-[var(--main-color)] hover:border-[var(--main-color)] active:text-[1.5rem] active:text-[var(--main-color)] active:border-[var(--main-color)]">
-        Home
-      </a>
-      <a href="#education"
-        class="block text-[1.2rem] py-4 my-6 text-center border-b-2 border-transparent transition-all duration-300 hover:text-[1.5rem] hover:text-[var(--main-color)] hover:border-[var(--main-color)]">
-        Education
-      </a>
-      <a href="#skills"
-        class="block text-[1.2rem] py-4 my-6 text-center border-b-2 border-transparent transition-all duration-300 hover:text-[1.5rem] hover:text-[var(--main-color)] hover:border-[var(--main-color)]">
-        Skills
-      </a>
-      <a href="#services"
-        class="block text-[1.2rem] py-4 my-6 text-center border-b-2 border-transparent transition-all duration-300 hover:text-[1.5rem] hover:text-[var(--main-color)] hover:border-[var(--main-color)]">
-        Service
-      </a>
-      <a href="#testimonials"
-        class="block text-[1.2rem] py-4 my-6 text-center border-b-2 border-transparent transition-all duration-300 hover:text-[1.5rem] hover:text-[var(--main-color)] hover:border-[var(--main-color)]">
-        Testimonials
-      </a>
-      <a href="#contact"
-        class="block text-[1.2rem] py-4 my-6 text-center border-b-2 border-transparent transition-all duration-300 hover:text-[1.5rem] hover:text-[var(--main-color)] hover:border-[var(--main-color)]">
-        Contact
-      </a>
+
+    <!-- Main Navigation -->
+    <nav class="navbar hidden" aria-label="Main Navigation">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#education" class="nav-link">Education</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#testimonials" class="nav-link">Testimonials</a>
+      <a href="#contact" class="nav-link">Contact</a>
     </nav>
-    
-    <nav class="navbar2 hidden">
-      <a onclick="color('#00ffee')"
-        class="block text-[1.2rem] py-4 my-6 text-center border-b-2 border-transparent transition-all duration-300 hover:text-[1.5rem] hover:text-[var(--main-color)] hover:border-[var(--main-color)]">
-        Blue Mode
-      </a>
-      <a onclick="color('#ff0000')"
-        class="block text-[1.2rem] py-4 my-6 text-center border-b-2 border-transparent transition-all duration-300 hover:text-[1.5rem] hover:text-[var(--main-color)] hover:border-[var(--main-color)]">
-        Red Mode
-      </a>
-      <a onclick="color('#b100ff')"
-        class="block text-[1.2rem] py-4 my-6 text-center border-b-2 border-transparent transition-all duration-300 hover:text-[1.5rem] hover:text-[var(--main-color)] hover:border-[var(--main-color)]">
-        Purple Mode
-      </a>
-      <a onclick="color('#fff900')"
-        class="block text-[1.2rem] py-4 my-6 text-center border-b-2 border-transparent transition-all duration-300 hover:text-[1.5rem] hover:text-[var(--main-color)] hover:border-[var(--main-color)]">
-        Yellow Mode
-      </a>
-      <a onclick="color('#1fff00')"
-        class="block text-[1.2rem] py-4 my-6 text-center border-b-2 border-transparent transition-all duration-300 hover:text-[1.5rem] hover:text-[var(--main-color)] hover:border-[var(--main-color)]">
-        Green Mode
-      </a>
-      <a onclick="color('#ff00cb')"
-        class="block text-[1.2rem] py-4 my-6 text-center border-b-2 border-transparent transition-all duration-300 hover:text-[1.5rem] hover:text-[var(--main-color)] hover:border-[var(--main-color)]">
-        Pink Mode
-      </a>
+
+    <!-- Theme Color Switcher -->
+    <nav class="navbar2 hidden" aria-label="Theme Color Switcher">
+      <a onclick="color('#00ffee')" class="theme-link">Blue Mode</a>
+      <a onclick="color('#ff0000')" class="theme-link">Red Mode</a>
+      <a onclick="color('#b100ff')" class="theme-link">Purple Mode</a>
+      <a onclick="color('#fff900')" class="theme-link">Yellow Mode</a>
+      <a onclick="color('#1fff00')" class="theme-link">Green Mode</a>
+      <a onclick="color('#ff00cb')" class="theme-link">Pink Mode</a>
     </nav>
-    
-    
-    <section class="flex items-center">
-      <!-- Language Selector -->
-      <div class="lang-selector">
-        <button id="lang-id" class="lang-btn active" onclick="changeLanguage('id')">
-          <div class="flag flag-id"></div>
-          <span>ID</span>
-        </button>
-        <button id="lang-en" class="lang-btn ml-2" onclick="changeLanguage('en')">
-          <div class="flag flag-en"></div>
-          <span>EN</span>
-        </button>
+
+    <!-- Language Selector -->
+    <section class="flex items-center" aria-label="Language Selector">
+      <button id="lang-id" class="lang-btn active" onclick="changeLanguage('id')" aria-label="Bahasa Indonesia">
+        <div class="flag flag-id"></div><span>ID</span>
+      </button>
+      <button id="lang-en" class="lang-btn ml-2" onclick="changeLanguage('en')" aria-label="English">
+        <div class="flag flag-en"></div><span>EN</span>
+      </button>
     </section>
 
+    <!-- Header Icons -->
     <section class="flex items-center">
-      <i class='bx bx-palette text-3xl text-color cursor-pointer mr-4' id="color-icon"></i>
-      <i class='bx bx-menu text-3xl text-color cursor-pointer menu-icon' id="menu-icon"></i>
+      <i class='bx bx-palette text-3xl text-color cursor-pointer mr-4' id="color-icon" aria-label="Change Theme Color"></i>
+      <i class='bx bx-menu text-3xl text-color cursor-pointer menu-icon' id="menu-icon" aria-label="Toggle Menu"></i>
     </section>
   </header>
   
