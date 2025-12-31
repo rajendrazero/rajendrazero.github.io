@@ -1,0 +1,10 @@
+# robots.txt untuk SEO GitHub Pages
+User-agent: *
+Allow: /
+
+# Lokasi sitemap
+Sitemap: https://rajendrazero.github.io/sitemap.xml
+
+# Jangan crawl folder atau file yang tidak perlu diindeks
+# Disallow: /private/
+# Disallow: /drafts/
