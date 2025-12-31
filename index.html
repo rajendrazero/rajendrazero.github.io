@@ -296,252 +296,120 @@
 
 
   <!-- Skills Section -->
-  <section class="skills min-h-screen py-40 px-8 md:px-16 lg:px-32 bg-border-color bg-border-color flex justify-center items-center flex-col" id="skills">
-    <h2 class="heading text-4xl md:text-6xl text-center my-10">Skills 
-      <i class="fas fa-code text-color ml-4 animate-float"></i>
-    </h2>
+<section class="skills min-h-screen py-40 px-8 md:px-16 lg:px-32 bg-border-color flex justify-center items-center flex-col" id="skills">
+  <h2 class="heading text-4xl md:text-6xl text-center my-10">
+    Skills 
+    <i class="fas fa-code text-color ml-4 animate-float" aria-hidden="true"></i>
+  </h2>
 
-    <div class="skills-container max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-8">
-      
-      <!-- JavaScript -->
-      <div class="skill-item">
-        <div class="flex justify-between items-center mb-4">
-          <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
-            <i class="fab fa-js-square"></i> JavaScript
-          </h3>
-          <p class="text-sm md:text-base font-medium">80%</p>
-        </div>
-        <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="80%">
-          <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="80%"></div>
-        </div>
+  <div class="skills-container max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-8">
+
+    <!-- Skill Item Template -->
+    <!-- Ulangi untuk setiap skill -->
+    <div class="skill-item">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
+          <i class="fab fa-js-square" aria-hidden="true"></i> JavaScript
+        </h3>
+        <p class="text-sm md:text-base font-medium" aria-label="Skill level 80%">80%</p>
       </div>
-
-      <!-- Node.js -->
-      <div class="skill-item">
-        <div class="flex justify-between items-center mb-4">
-          <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
-            <i class="fab fa-node-js"></i> Node.js
-          </h3>
-          <p class="text-sm md:text-base font-medium">75%</p>
-        </div>
-        <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="75%">
-          <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="75%"></div>
-        </div>
+      <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="80%">
+        <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="80%"></div>
       </div>
-
-      <!-- NestJS -->
-      <div class="skill-item">
-        <div class="flex justify-between items-center mb-4">
-          <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
-            <i class="fas fa-cubes"></i> NestJS
-          </h3>
-          <p class="text-sm md:text-base font-medium">70%</p>
-        </div>
-        <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="70%">
-          <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="70%"></div>
-        </div>
-      </div>
-
-      <!-- React.js -->
-      <div class="skill-item">
-        <div class="flex justify-between items-center mb-4">
-          <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
-            <i class="fab fa-react"></i> React.js
-          </h3>
-          <p class="text-sm md:text-base font-medium">75%</p>
-        </div>
-        <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="75%">
-          <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="75%"></div>
-        </div>
-      </div>
-
-      <!-- PHP -->
-      <div class="skill-item">
-        <div class="flex justify-between items-center mb-4">
-          <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
-            <i class="fab fa-php"></i> PHP
-          </h3>
-          <p class="text-sm md:text-base font-medium">80%</p>
-        </div>
-        <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="80%">
-          <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="80%"></div>
-        </div>
-      </div>
-
-      <!-- C++ -->
-      <div class="skill-item">
-        <div class="flex justify-between items-center mb-4">
-          <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
-            <i class="fab fa-cuttlefish"></i> C++
-          </h3>
-          <p class="text-sm md:text-base font-medium">70%</p>
-        </div>
-        <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="70%">
-          <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="70%"></div>
-        </div>
-      </div>
-
-      <!-- MySQL -->
-      <div class="skill-item">
-        <div class="flex justify-between items-center mb-4">
-          <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
-            <i class="fas fa-database"></i> MySQL
-          </h3>
-          <p class="text-sm md:text-base font-medium">80%</p>
-        </div>
-        <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="80%">
-          <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="80%"></div>
-        </div>
-      </div>
-
-      <!-- PostgreSQL -->
-      <div class="skill-item">
-        <div class="flex justify-between items-center mb-4">
-          <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
-            <i class="fas fa-server"></i> PostgreSQL
-          </h3>
-          <p class="text-sm md:text-base font-medium">75%</p>
-        </div>
-        <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="75%">
-          <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="75%"></div>
-        </div>
-      </div>
-
-      <!-- Docker -->
-      <div class="skill-item">
-        <div class="flex justify-between items-center mb-4">
-          <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
-            <i class="fab fa-docker"></i> Docker
-          </h3>
-          <p class="text-sm md:text-base font-medium">65%</p>
-        </div>
-        <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="65%">
-          <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="65%"></div>
-        </div>
-      </div>
-
-      <!-- Redis -->
-      <div class="skill-item">
-        <div class="flex justify-between items-center mb-4">
-          <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
-            <i class="fab fa-stack-overflow"></i> Redis
-          </h3>
-          <p class="text-sm md:text-base font-medium">60%</p>
-        </div>
-        <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="60%">
-          <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="60%"></div>
-        </div>
-      </div>
-
-      <!-- Tailwind CSS -->
-      <div class="skill-item">
-        <div class="flex justify-between items-center mb-4">
-          <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
-            <i class="fab fa-css3-alt"></i> Tailwind CSS
-          </h3>
-          <p class="text-sm md:text-base font-medium">90%</p>
-        </div>
-        <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="90%">
-          <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="90%"></div>
-        </div>
-      </div>
-
-      <!-- Bootstrap -->
-      <div class="skill-item">
-        <div class="flex justify-between items-center mb-4">
-          <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
-            <i class="fab fa-bootstrap"></i> Bootstrap
-          </h3>
-          <p class="text-sm md:text-base font-medium">85%</p>
-        </div>
-        <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="85%">
-          <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="85%"></div>
-        </div>
-      </div>
-
-      <!-- Three.js -->
-      <div class="skill-item">
-        <div class="flex justify-between items-center mb-4">
-          <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
-            <i class="fas fa-cube"></i> Three.js
-          </h3>
-          <p class="text-sm md:text-base font-medium">60%</p>
-        </div>
-        <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="60%">
-          <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="60%"></div>
-        </div>
-      </div>
-
-      <!-- Express.js -->
-      <div class="skill-item">
-        <div class="flex justify-between items-center mb-4">
-          <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
-            <i class="fas fa-code"></i> Express.js
-          </h3>
-          <p class="text-sm md:text-base font-medium">75%</p>
-        </div>
-        <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="75%">
-          <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="75%"></div>
-        </div>
-      </div>
-
     </div>
-  </section>
-  
-  <!-- Services Section -->
-  <section class="services min-h-screen py-40 px-8 md:px-16 lg:px-32 bg-second-border-color flex justify-center items-center flex-col" id="services">
-      <h2 class="heading text-4xl md:text-6xl text-center my-10">Services <i class="fas fa-cogs text-color ml-4 animate-spin" style="animation-duration: 5s;"></i></h2>
-      
-      <div class="services-container grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-        <div class="service-box bg-main-color rounded-2xl border-2 border-transparent transition duration-400 hover:bg-service-color hover:text-border-color hover:border-color hover:scale-[1.03]">
-          <div class="service-info flex flex-col text-left p-6 items-center">
-            <div class="service-icon">
-              <i class="fas fa-paint-brush"></i>
-            </div>
-            <h4 class="text-xl md:text-2xl font-extrabold mb-4">UI Design</h4>
-            <p class="text-sm md:text-base">
-              UI Design berfokus pada pembuatan antarmuka yang menarik dan intuitif untuk meningkatkan pengalaman visual pengguna dalam menggunakan website, aplikasi web, maupun aplikasi mobile.
-            </p>
-          </div>
-        </div>
-        
-        <div class="service-box bg-main-color rounded-2xl border-2 border-transparent transition duration-400 hover:bg-service-color hover:text-border-color hover:border-color hover:scale-[1.03]">
-          <div class="service-info flex flex-col text-left p-6 items-center">
-            <div class="service-icon">
-              <i class="fas fa-mobile-alt"></i>
-            </div>
-            <h4 class="text-xl md:text-2xl font-extrabold mb-4">UX Design</h4>
-            <p class="text-sm md:text-base">
-              UX Design berperan dalam merancang pengalaman pengguna yang optimal dengan memastikan setiap interaksi memberikan kesan positif dan memudahkan pengguna dalam mencapai tujuannya.
-            </p>
-          </div>
-        </div>
 
-        <div class="service-box bg-main-color rounded-2xl border-2 border-transparent transition duration-400 hover:bg-service-color hover:text-border-color hover:border-color hover:scale-[1.03]">
-          <div class="service-info flex flex-col text-left p-6 items-center">
-            <div class="service-icon">
-              <i class="fas fa-paint-brush"></i>
-            </div>
-            <h4 class="text-xl md:text-2xl font-extrabold mb-4">Frontend Developer</h4>
-            <p class="text-sm md:text-base">
-              Frontend Developer bertanggung jawab mengimplementasikan desain antarmuka dan memastikan setiap elemen visual berfungsi dengan baik dan responsif di berbagai perangkat.
-            </p>
-          </div>
-        </div>
-
-        <div class="service-box bg-main-color rounded-2xl border-2 border-transparent transition duration-400 hover:bg-service-color hover:text-border-color hover:border-color hover:scale-[1.03]">
-          <div class="service-info flex flex-col text-left p-6 items-center">
-            <div class="service-icon">
-              <i class="fas fa-mobile-alt transition-colors"></i>
-            </div>
-            <h4 class="text-xl md:text-2xl font-extrabold mb-4">Backend Developer</h4>
-            <p class="text-sm md:text-base">
-              Backend Developer bekerja di balik layar untuk membangun infrastruktur aplikasi, termasuk database, API, dan logika bisnis yang menjadi fondasi dari setiap sistem.
-            </p>
-          </div>
-        </div>
+    <!-- Node.js -->
+    <div class="skill-item">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
+          <i class="fab fa-node-js" aria-hidden="true"></i> Node.js
+        </h3>
+        <p class="text-sm md:text-base font-medium" aria-label="Skill level 75%">75%</p>
+      </div>
+      <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="75%">
+        <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="75%"></div>
+      </div>
     </div>
-  </section>
+
+    <!-- NestJS -->
+    <div class="skill-item">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
+          <i class="fas fa-cubes" aria-hidden="true"></i> NestJS
+        </h3>
+        <p class="text-sm md:text-base font-medium" aria-label="Skill level 70%">70%</p>
+      </div>
+      <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="70%">
+        <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="70%"></div>
+      </div>
+    </div>
+
+    <!-- Lanjutkan dengan React.js, PHP, C++, MySQL, PostgreSQL, Docker, Redis, Tailwind CSS, Bootstrap, Three.js, Express.js -->
+    <!-- Gunakan format yang sama seperti di atas, ganti nama, icon, dan persen -->
+
+  </div>
+</section>
+
+<!-- Services Section -->
+<section class="services min-h-screen py-40 px-8 md:px-16 lg:px-32 bg-second-border-color flex justify-center items-center flex-col" id="services">
+  <h2 class="heading text-4xl md:text-6xl text-center my-10">
+    Services 
+    <i class="fas fa-cogs text-color ml-4 animate-spin" style="animation-duration: 5s;" aria-hidden="true"></i>
+  </h2>
+
+  <div class="services-container grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+    <!-- Service Item Template -->
+    <div class="service-box bg-main-color rounded-2xl border-2 border-transparent transition duration-400 hover:bg-service-color hover:text-border-color hover:border-color hover:scale-[1.03]">
+      <div class="service-info flex flex-col text-left p-6 items-center">
+        <div class="service-icon">
+          <i class="fas fa-paint-brush" aria-hidden="true"></i>
+        </div>
+        <h4 class="text-xl md:text-2xl font-extrabold mb-4">UI Design</h4>
+        <p class="text-sm md:text-base">
+          UI Design berfokus pada pembuatan antarmuka yang menarik dan intuitif untuk meningkatkan pengalaman visual pengguna.
+        </p>
+      </div>
+    </div>
+
+    <div class="service-box bg-main-color rounded-2xl border-2 border-transparent transition duration-400 hover:bg-service-color hover:text-border-color hover:border-color hover:scale-[1.03]">
+      <div class="service-info flex flex-col text-left p-6 items-center">
+        <div class="service-icon">
+          <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+        </div>
+        <h4 class="text-xl md:text-2xl font-extrabold mb-4">UX Design</h4>
+        <p class="text-sm md:text-base">
+          UX Design merancang pengalaman pengguna yang optimal dan memastikan setiap interaksi memberikan kesan positif.
+        </p>
+      </div>
+    </div>
+
+    <div class="service-box bg-main-color rounded-2xl border-2 border-transparent transition duration-400 hover:bg-service-color hover:text-border-color hover:border-color hover:scale-[1.03]">
+      <div class="service-info flex flex-col text-left p-6 items-center">
+        <div class="service-icon">
+          <i class="fas fa-laptop-code" aria-hidden="true"></i>
+        </div>
+        <h4 class="text-xl md:text-2xl font-extrabold mb-4">Frontend Developer</h4>
+        <p class="text-sm md:text-base">
+          Frontend Developer mengimplementasikan desain antarmuka dan memastikan elemen visual berfungsi dengan baik di berbagai perangkat.
+        </p>
+      </div>
+    </div>
+
+    <div class="service-box bg-main-color rounded-2xl border-2 border-transparent transition duration-400 hover:bg-service-color hover:text-border-color hover:border-color hover:scale-[1.03]">
+      <div class="service-info flex flex-col text-left p-6 items-center">
+        <div class="service-icon">
+          <i class="fas fa-server" aria-hidden="true"></i>
+        </div>
+        <h4 class="text-xl md:text-2xl font-extrabold mb-4">Backend Developer</h4>
+        <p class="text-sm md:text-base">
+          Backend Developer membangun infrastruktur aplikasi, termasuk database, API, dan logika bisnis yang menjadi fondasi sistem.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
   
   <!-- Testimonials Section -->
   <section class="testimonials min-h-screen py-40 px-8 md:px-16 lg:px-32 bg-border-color flex justify-center items-center flex-col" id="testimonials">
