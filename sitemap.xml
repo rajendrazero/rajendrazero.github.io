@@ -2,49 +2,49 @@
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
-        <loc>https://rajendrazero.github.io/</loc>
+        <loc>https://rajendra-af.netlify.app/</loc>
         <lastmod>2025-12-31</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
     
     <url>
-        <loc>https://rajendrazero.github.io/#home</loc>
+        <loc>https://rajendra-af.netlify.app/#home</loc>
         <lastmod>2025-12-31</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://rajendrazero.github.io/#education</loc>
+        <loc>https://rajendra-af.netlify.app/#education</loc>
         <lastmod>2025-12-31</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://rajendrazero.github.io/#skills</loc>
+        <loc>https://rajendra-af.netlify.app/#skills</loc>
         <lastmod>2025-12-31</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://rajendrazero.github.io/#services</loc>
+        <loc>https://rajendra-af.netlify.app/#services</loc>
         <lastmod>2025-12-31</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     
     <url>
-        <loc>https://rajendrazero.github.io/#testimonials</loc>
+        <loc>https://rajendra-af.netlify.app/#testimonials</loc>
         <lastmod>2025-12-31</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
   <url>
-        <loc>https://rajendrazero.github.io/#contact</loc>
+        <loc>https://rajendra-af.netlify.app/#contact</loc>
         <lastmod>2025-12-31</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
