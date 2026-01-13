@@ -10,7 +10,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
   <!-- SEO -->
-  <meta name="title" content="Rajendra Athallah Fawwaz)">
+  <meta name="title" content="Rajendra Athallah Fawwaz">
   <meta name="description" content="Portofolio Rajendra A_F (Rajendrazero) sebagai Web Developer, UI/UX Designer, Backend Developer, dan penyedia jasa pembuatan website profesional.">
   <meta name="keywords" content="Rajendra, Raj, Rajendra-af, rajendra-af, rajendrazero, website, portofolio, raj, rajendra athallah fawwaz, Rajendra Athallah Fawwwaz, Rajendrazero, Portofolio, Jasa Website, Web Developer, Frontend, Backend, UI UX, Designer, Programmer, Fullstack, Rajendra Portfolio, Rajendra Jasa Website, Rajendra Web Developer, Website Medan, Freelancer Website, Pembuatan Website Profesional, Rajendra Web Design">
   <meta name="author" content="Rajendra A_F">
@@ -39,6 +39,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <title>Rajendra Athallah Fawwaz – Portfolio Web Developer & Designer</title>
   <link href='assets/style.css' rel='stylesheet'>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <script src="assets/app.js" defer></script>
+ 
 </head>
 <body class="bg-border-color text-text-color font-poppins">
     <!-- Particle Background -->
@@ -105,43 +108,20 @@
 <section class="home min-h-screen py-32 px-12 flex flex-col-reverse lg:flex-row justify-center items-center gap-8 md:gap-15" id="home">
   
   <!-- Konten Teks -->
-  <div class="home-content flex flex-col items-center md:items-start text-center md:text-left max-w-2xl">
-    
-    <!-- Nama & Profesi -->
+  <div class="home-content flex flex-col items-center md:items-start text-center md:text-left max-w-2xl" x-data="{profile: {}}" x-init="fetchData().then(data => profile = data.profile)">
     <h1 class="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold">
-      Hi, I'm <span class="text-color animate-pulse">Rajendra</span>
+      Hi, I'm <span class="text-color animate-pulse" x-text="profile.nickname"></span>
     </h1>
-    <h2 class="text-2xl md:text-3xl my-4">
-      Junior Web Developer & Backend Programmer
-    </h2>
-    
-    <!-- Deskripsi -->
-    <p class="text-base md:text-lg leading-relaxed mb-6">
-      Saya seorang <strong>junior web developer</strong> dengan kemampuan di <strong>backend</strong> dan <strong>frontend</strong>. 
-      Saat ini fokus memperdalam <strong>React</strong>, <strong>Node</strong>, dan <strong>framework modern</strong> untuk membangun website yang interaktif, responsif, dan SEO-friendly.
-    </p>
-    
-    <!-- Social Icons -->
+    <h2 class="text-2xl md:text-3xl my-4" x-text="profile.title"></h2>
+    <p class="text-base md:text-lg leading-relaxed mb-6" x-text="profile.description"></p>
     <div class="social-icons flex my-4">
-      <a href="https://www.linkedin.com/in/raj-rajendra-athallah-fawwaz-443957317" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Rajendra Athallah Fawwaz"
-        class="icon-hover flex justify-center items-center w-16 h-16 md:w-20 md:h-20 border-2 border-color text-2xl rounded-full text-color mr-4 transition duration-300 hover:bg-main-color hover:text-border-color hover:scale-110 hover:-translate-y-2 hover:shadow-main-color">
-        <i class='bx bxl-linkedin'></i>
-      </a>
-      <a href="https://github.com/rajendrazero" target="_blank" rel="noopener noreferrer" aria-label="GitHub Rajendra Athallah Fawwaz"
-        class="icon-hover flex justify-center items-center w-16 h-16 md:w-20 md:h-20 border-2 border-color text-2xl rounded-full text-color mr-4 transition duration-300 hover:bg-main-color hover:text-border-color hover:scale-110 hover:-translate-y-2 hover:shadow-main-color">
-        <i class='bx bxl-github'></i>
-      </a>
-      <a href="https://www.instagram.com/rfz08_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Rajendra Athallah Fawwaz"
-        class="icon-hover flex justify-center items-center w-16 h-16 md:w-20 md:h-20 border-2 border-color text-2xl rounded-full text-color mr-4 transition duration-300 hover:bg-main-color hover:text-border-color hover:scale-110 hover:-translate-y-2 hover:shadow-main-color">
-        <i class='bx bxl-instagram-alt'></i>
-      </a>
-      <a href="https://wa.me/62882017296806?text=Halo,%20Rajendra!" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Rajendra Athallah Fawwaz"
-        class="icon-hover flex justify-center items-center w-16 h-16 md:w-20 md:h-20 border-2 border-color text-2xl rounded-full text-color mr-4 transition duration-300 hover:bg-main-color hover:text-border-color hover:scale-110 hover:-translate-y-2 hover:shadow-main-color">
-        <i class='bx bxl-whatsapp text-[2rem] font-medium leading-[1.8]'></i>
-      </a>
+      <template x-for="soc in profile.social" :key="soc.label">
+        <a :href="soc.url" target="_blank" rel="noopener noreferrer" :aria-label="soc.label + ' Rajendra Athallah Fawwaz'"
+          class="icon-hover flex justify-center items-center w-16 h-16 md:w-20 md:h-20 border-2 border-color text-2xl rounded-full text-color mr-4 transition duration-300 hover:bg-main-color hover:text-border-color hover:scale-110 hover:-translate-y-2 hover:shadow-main-color">
+          <i class="bx" :class="soc.icon"></i>
+        </a>
+      </template>
     </div>
-    
-    <!-- Tombol Hire & Contact -->
     <div class="btn-group flex flex-col sm:flex-row gap-4 mt-4">
       <a href="#contact" class="btn-hover btn inline-block py-4 px-8 bg-main-color shadow-main-color rounded-full text-base font-semibold text-border-color transition duration-300 hover:scale-105 hover:shadow-main-color-lg">
         <i class="fas fa-handshake mr-2"></i>Hire Me
@@ -162,437 +142,155 @@
 
   
 <!-- Education Section - SEO & Accessibility Optimized -->
-<section class="education min-h-screen py-40 px-8 md:px-16 lg:px-32 bg-second-border-color flex justify-center items-center flex-col" id="education">
-  
-  <!-- Heading -->
+<section class="education min-h-screen py-40 px-8 md:px-16 lg:px-32 bg-second-border-color flex justify-center items-center flex-col" id="education" x-data="{education: []}" x-init="fetchData().then(data => education = data.education)">
   <h2 class="heading text-4xl md:text-6xl text-center my-10">
     Education 
     <i class="fas fa-graduation-cap text-color ml-4" aria-hidden="true"></i>
   </h2>
-  
   <div class="timeline-items">
-
-    <!-- MTs Darul Aman -->
-    <div class="timeline-item">
-      <div class="timeline-icon">
-        <i class="fas fa-school" aria-hidden="true"></i>
-      </div>
-      <div class="timeline-content-container">
-        <div class="timeline-date" aria-label="Tahun 2020">2020 <i class="fas fa-calendar-alt text-color ml-2"></i></div>
-        <div class="timeline-content">
-          <h3 class="text-xl font-medium mb-2">
-            <i class="fas fa-book-reader text-color mr-2" aria-hidden="true"></i>
-            MTs Darul Aman
-          </h3>
-          <p class="text-base leading-relaxed">
-            <i class="fas fa-quote-left text-color mr-1 opacity-70"></i>
-            Saya memulai jenjang pendidikan setara SMP di MTs Darul Aman pada tahun 2020. Di sinilah saya mulai mempelajari pemrograman dan akhirnya bisa membuat website ini pada 14 Juni 2024.
-            <i class="fas fa-quote-right text-color ml-1 opacity-70"></i>
-          </p>
+    <template x-for="edu in education" :key="edu.school">
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <i class="fas" :class="edu.icon" aria-hidden="true"></i>
+        </div>
+        <div class="timeline-content-container">
+          <div class="timeline-date" x-text="edu.year"></div>
+          <div class="timeline-content">
+            <h3 class="text-xl font-medium mb-2">
+              <i class="fas text-color mr-2" :class="edu.icon" aria-hidden="true"></i>
+              <span x-text="edu.school"></span>
+            </h3>
+            <p class="text-base leading-relaxed" x-text="edu.desc"></p>
+          </div>
         </div>
       </div>
-    </div>
-
-    <!-- SMKN-9 RPL -->
-    <div class="timeline-item">
-      <div class="timeline-icon">
-        <i class="fas fa-laptop-code" aria-hidden="true"></i>
-      </div>
-      <div class="timeline-content-container">
-        <div class="timeline-date" aria-label="Tahun 2023">2023 <i class="fas fa-calendar-alt text-color ml-2"></i></div>
-        <div class="timeline-content">
-          <h3 class="text-xl font-medium mb-2">
-            <i class="fas fa-code text-color mr-2" aria-hidden="true"></i>
-            SMKN-9
-          </h3>
-          <p class="text-base leading-relaxed">
-            <i class="fas fa-quote-left text-color mr-1 opacity-70"></i>
-            Saat ini saya bersekolah di SMKN-9 dengan jurusan Rekayasa Perangkat Lunak (RPL). Saya mendalami berbagai aspek pemrograman baik secara akademis maupun otodidak.
-            <i class="fas fa-quote-right text-color ml-1 opacity-70"></i>
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Belajar Otodidak -->
-    <div class="timeline-item">
-      <div class="timeline-icon">
-        <i class="fas fa-school" aria-hidden="true"></i>
-      </div>
-      <div class="timeline-content-container">
-        <div class="timeline-date" aria-label="Tahun 2024">2024 <i class="fas fa-calendar-alt text-color ml-2"></i></div>
-        <div class="timeline-content">
-          <h3 class="text-xl font-medium mb-2">
-            <i class="fas fa-book-reader text-color mr-2" aria-hidden="true"></i>
-            Belajar Otodidak
-          </h3>
-          <p class="text-base leading-relaxed">
-            <i class="fas fa-quote-left text-color mr-1 opacity-70"></i>
-            Saat ini saya fokus memahami dasar-dasar setiap bahasa pemrograman yang saya pelajari untuk membangun fondasi yang kuat.
-            <i class="fas fa-quote-right text-color ml-1 opacity-70"></i>
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Job List / Pengalaman -->
-    <div class="timeline-item">
-      <div class="timeline-icon">
-        <i class="fas fa-laptop-code" aria-hidden="true"></i>
-      </div>
-      <div class="timeline-content-container">
-        <div class="timeline-date" aria-label="Tahun 2024">2024 <i class="fas fa-calendar-alt text-color ml-2"></i></div>
-        <div class="timeline-content">
-          <h3 class="text-xl font-medium mb-2">
-            <i class="fas fa-code text-color mr-2" aria-hidden="true"></i>
-            Job List
-          </h3>
-          <p class="text-base leading-relaxed">
-            <i class="fas fa-quote-left text-color mr-1 opacity-70"></i>
-            Saat ini saya belum memiliki pengalaman kerja profesional karena baru serius mempelajari pemrograman selama 1 tahun terakhir.
-            <i class="fas fa-quote-right text-color ml-1 opacity-70"></i>
-          </p>
-        </div>
-      </div>
-    </div>
-
+    </template>
   </div>
 </section>
 
 <!-- Skills Section -->
-<section class="skills min-h-screen py-40 px-8 md:px-16 lg:px-32 bg-border-color flex justify-center items-center flex-col" id="skills">
+<section class="skills min-h-screen py-40 px-8 md:px-16 lg:px-32 bg-border-color flex justify-center items-center flex-col" id="skills" x-data="{skills: []}" x-init="fetchData().then(data => skills = data.skills)">
   <h2 class="heading text-4xl md:text-6xl text-center my-10">
     Skills 
     <i class="fas fa-code text-color ml-4 animate-float" aria-hidden="true"></i>
   </h2>
-
   <div class="skills-container max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-8">
-
-    <!-- JavaScript -->
-    <div class="skill-item">
-      <div class="flex justify-between items-center mb-4">
-        <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
-          <i class="fab fa-js-square" aria-hidden="true"></i> JavaScript
-        </h3>
-        <p class="text-sm md:text-base font-medium" aria-label="Skill level 80%">80%</p>
+    <template x-for="skill in skills" :key="skill.name">
+      <div class="skill-item">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
+            <i :class="skill.icon" aria-hidden="true"></i> <span x-text="skill.name"></span>
+          </h3>
+          <p class="text-sm md:text-base font-medium" x-text="skill.level + '%'" :aria-label="'Skill level ' + skill.level + '%'" ></p>
+        </div>
+        <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" :data-percent="skill.level + '%'">
+          <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" :title="skill.level + '%'" ></div>
+        </div>
       </div>
-      <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="80%">
-        <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="80%"></div>
-      </div>
-    </div>
-
-    <!-- Node.js -->
-    <div class="skill-item">
-      <div class="flex justify-between items-center mb-4">
-        <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
-          <i class="fab fa-node-js" aria-hidden="true"></i> Node.js
-        </h3>
-        <p class="text-sm md:text-base font-medium" aria-label="Skill level 75%">75%</p>
-      </div>
-      <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="75%">
-        <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="75%"></div>
-      </div>
-    </div>
-
-    <!-- NestJS -->
-    <div class="skill-item">
-      <div class="flex justify-between items-center mb-4">
-        <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
-          <i class="fas fa-cubes" aria-hidden="true"></i> NestJS
-        </h3>
-        <p class="text-sm md:text-base font-medium" aria-label="Skill level 70%">70%</p>
-      </div>
-      <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="70%">
-        <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="70%"></div>
-      </div>
-    </div>
-
-    <!-- React.js -->
-    <div class="skill-item">
-      <div class="flex justify-between items-center mb-4">
-        <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
-          <i class="fab fa-react" aria-hidden="true"></i> React.js
-        </h3>
-        <p class="text-sm md:text-base font-medium" aria-label="Skill level 75%">75%</p>
-      </div>
-      <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="75%">
-        <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="75%"></div>
-      </div>
-    </div>
-
-    <!-- PHP -->
-    <div class="skill-item">
-      <div class="flex justify-between items-center mb-4">
-        <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
-          <i class="fab fa-php" aria-hidden="true"></i> PHP
-        </h3>
-        <p class="text-sm md:text-base font-medium" aria-label="Skill level 80%">80%</p>
-      </div>
-      <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="80%">
-        <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="80%"></div>
-      </div>
-    </div>
-
-    <!-- C++ -->
-    <div class="skill-item">
-      <div class="flex justify-between items-center mb-4">
-        <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
-          <i class="fab fa-cuttlefish" aria-hidden="true"></i> C++
-        </h3>
-        <p class="text-sm md:text-base font-medium" aria-label="Skill level 70%">70%</p>
-      </div>
-      <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="70%">
-        <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="70%"></div>
-      </div>
-    </div>
-
-    <!-- MySQL -->
-    <div class="skill-item">
-      <div class="flex justify-between items-center mb-4">
-        <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
-          <i class="fas fa-database" aria-hidden="true"></i> MySQL
-        </h3>
-        <p class="text-sm md:text-base font-medium" aria-label="Skill level 80%">80%</p>
-      </div>
-      <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="80%">
-        <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="80%"></div>
-      </div>
-    </div>
-
-    <!-- PostgreSQL -->
-    <div class="skill-item">
-      <div class="flex justify-between items-center mb-4">
-        <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
-          <i class="fas fa-server" aria-hidden="true"></i> PostgreSQL
-        </h3>
-        <p class="text-sm md:text-base font-medium" aria-label="Skill level 75%">75%</p>
-      </div>
-      <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="75%">
-        <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="75%"></div>
-      </div>
-    </div>
-
-    <!-- Docker -->
-    <div class="skill-item">
-      <div class="flex justify-between items-center mb-4">
-        <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
-          <i class="fab fa-docker" aria-hidden="true"></i> Docker
-        </h3>
-        <p class="text-sm md:text-base font-medium" aria-label="Skill level 65%">65%</p>
-      </div>
-      <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="65%">
-        <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="65%"></div>
-      </div>
-    </div>
-
-    <!-- Redis -->
-    <div class="skill-item">
-      <div class="flex justify-between items-center mb-4">
-        <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
-          <i class="fab fa-stack-overflow" aria-hidden="true"></i> Redis
-        </h3>
-        <p class="text-sm md:text-base font-medium" aria-label="Skill level 60%">60%</p>
-      </div>
-      <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="60%">
-        <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="60%"></div>
-      </div>
-    </div>
-
-    <!-- Tailwind CSS -->
-    <div class="skill-item">
-      <div class="flex justify-between items-center mb-4">
-        <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
-          <i class="fab fa-css3-alt" aria-hidden="true"></i> Tailwind CSS
-        </h3>
-        <p class="text-sm md:text-base font-medium" aria-label="Skill level 90%">90%</p>
-      </div>
-      <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="90%">
-        <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="90%"></div>
-      </div>
-    </div>
-
-    <!-- Bootstrap -->
-    <div class="skill-item">
-      <div class="flex justify-between items-center mb-4">
-        <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
-          <i class="fab fa-bootstrap" aria-hidden="true"></i> Bootstrap
-        </h3>
-        <p class="text-sm md:text-base font-medium" aria-label="Skill level 85%">85%</p>
-      </div>
-      <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="85%">
-        <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="85%"></div>
-      </div>
-    </div>
-
-    <!-- Three.js -->
-    <div class="skill-item">
-      <div class="flex justify-between items-center mb-4">
-        <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
-          <i class="fas fa-cube" aria-hidden="true"></i> Three.js
-        </h3>
-        <p class="text-sm md:text-base font-medium" aria-label="Skill level 60%">60%</p>
-      </div>
-      <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="60%">
-        <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="60%"></div>
-      </div>
-    </div>
-
-    <!-- Express.js -->
-    <div class="skill-item">
-      <div class="flex justify-between items-center mb-4">
-        <h3 class="text-xl md:text-2xl font-medium text-color flex items-center gap-2">
-          <i class="fas fa-code" aria-hidden="true"></i> Express.js
-        </h3>
-        <p class="text-sm md:text-base font-medium" aria-label="Skill level 75%">75%</p>
-      </div>
-      <div class="w-full bg-border-color rounded-full h-4 overflow-hidden cursor-pointer skill-bar group" data-percent="75%">
-        <div class="bg-main-color h-full rounded-full skill-progress w-0 transition-all duration-1000 ease-out group-hover:w-full" title="75%"></div>
-      </div>
-    </div>
-
+    </template>
   </div>
 </section>
 
 
 <!-- Services Section -->
-<section class="services min-h-screen py-40 px-8 md:px-16 lg:px-32 bg-second-border-color flex justify-center items-center flex-col" id="services">
-  <h2 class="heading text-4xl md:text-6xl text-center my-10">
-    Services 
-    <i class="fas fa-cogs text-color ml-4 animate-spin" style="animation-duration: 5s;" aria-hidden="true"></i>
-  </h2>
+<section
+  id="services"
+  aria-label="Layanan yang saya tawarkan"
+  class="services min-h-screen py-40 px-8 md:px-16 lg:px-32 
+         bg-second-border-color flex flex-col items-center"
+  x-data="{ services: [] }"
+  x-init="fetchData().then(data => services = data.services)"
+>
+  <header>
+    <h2 class="heading text-4xl md:text-6xl text-center my-10">
+      Services
+      <i class="fas fa-cogs text-color ml-4 animate-spin"
+         style="animation-duration:5s"
+         aria-hidden="true"></i>
+    </h2>
+  </header>
 
-  <div class="services-container grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-    <!-- Service Item Template -->
-    <div class="service-box bg-main-color rounded-2xl border-2 border-transparent transition duration-400 hover:bg-service-color hover:text-border-color hover:border-color hover:scale-[1.03]">
-      <div class="service-info flex flex-col text-left p-6 items-center">
-        <div class="service-icon">
-          <i class="fas fa-paint-brush" aria-hidden="true"></i>
+  <div
+    class="services-container grid grid-cols-1 md:grid-cols-2 gap-8 
+           max-w-6xl w-full"
+  >
+    <template x-for="service in services" :key="service.name">
+      <article
+        tabindex="0"
+        class="service-box bg-main-color rounded-2xl border-2 border-transparent p-8
+               transition-all duration-500 ease-out
+               hover:bg-service-color hover:border-color hover:scale-[1.05]
+               hover:shadow-2xl
+               focus:bg-service-color focus:border-color focus:scale-[1.05]
+               group cursor-pointer hover:shake"
+        :aria-label="`Layanan ${service.name}`"
+      >
+        <div class="service-info flex flex-col items-center text-center gap-4">
+
+          <!-- ICON -->
+          <div
+            class="service-icon text-4xl text-color
+                   transition-all duration-500
+                   group-hover:text-black group-focus:text-black
+                   group-hover:scale-110"
+            aria-hidden="true"
+          >
+            <i :class="service.icon"></i>
+          </div>
+
+          <!-- TITLE -->
+          <h3
+            class="text-xl md:text-2xl font-extrabold
+                   transition-colors duration-500
+                   group-hover:text-black group-focus:text-black"
+            x-text="service.name"
+          ></h3>
+
+          <!-- DESCRIPTION -->
+          <p
+            class="text-sm md:text-base leading-relaxed
+                   transition-colors duration-500
+                   group-hover:text-black group-focus:text-black"
+            x-text="service.desc"
+          ></p>
+          
         </div>
-        <h3 class="text-xl md:text-2xl font-extrabold mb-4">UI Design</h3>
-        <p class="text-sm md:text-base">
-          UI Design berfokus pada pembuatan antarmuka yang menarik dan intuitif untuk meningkatkan pengalaman visual pengguna.
-        </p>
-      </div>
-    </div>
-
-    <div class="service-box bg-main-color rounded-2xl border-2 border-transparent transition duration-400 hover:bg-service-color hover:text-border-color hover:border-color hover:scale-[1.03]">
-      <div class="service-info flex flex-col text-left p-6 items-center">
-        <div class="service-icon">
-          <i class="fas fa-mobile-alt" aria-hidden="true"></i>
-        </div>
-        <h3 class="text-xl md:text-2xl font-extrabold mb-4">UX Design</h3>
-        <p class="text-sm md:text-base">
-          UX Design merancang pengalaman pengguna yang optimal dan memastikan setiap interaksi memberikan kesan positif.
-        </p>
-      </div>
-    </div>
-
-    <div class="service-box bg-main-color rounded-2xl border-2 border-transparent transition duration-400 hover:bg-service-color hover:text-border-color hover:border-color hover:scale-[1.03]">
-      <div class="service-info flex flex-col text-left p-6 items-center">
-        <div class="service-icon">
-          <i class="fas fa-laptop-code" aria-hidden="true"></i>
-        </div>
-        <h3 class="text-xl md:text-2xl font-extrabold mb-4">Frontend Developer</h3>
-        <p class="text-sm md:text-base">
-          Frontend Developer mengimplementasikan desain antarmuka dan memastikan elemen visual berfungsi dengan baik di berbagai perangkat.
-        </p>
-      </div>
-    </div>
-
-    <div class="service-box bg-main-color rounded-2xl border-2 border-transparent transition duration-400 hover:bg-service-color hover:text-border-color hover:border-color hover:scale-[1.03]">
-      <div class="service-info flex flex-col text-left p-6 items-center">
-        <div class="service-icon">
-          <i class="fas fa-server" aria-hidden="true"></i>
-        </div>
-        <h3 class="text-xl md:text-2xl font-extrabold mb-4">Backend Developer</h3>
-        <p class="text-sm md:text-base">
-          Backend Developer membangun infrastruktur aplikasi, termasuk database, API, dan logika bisnis yang menjadi fondasi sistem.
-        </p>
-      </div>
-    </div>
-
+      </article>
+    </template>
   </div>
 </section>
 
+
+
   
   <!-- Testimonials Section -->
-<section class="testimonials min-h-screen py-40 px-8 md:px-16 lg:px-32 bg-border-color flex justify-center items-center flex-col" id="testimonials">
+<section class="testimonials min-h-screen py-40 px-8 md:px-16 lg:px-32 bg-border-color flex justify-center items-center flex-col" id="testimonials" x-data="{testimonials: []}" x-init="fetchData().then(data => testimonials = data.testimonials)">
   <h2 class="heading text-4xl md:text-6xl text-center my-10">
     Testimonials 
     <i class="fas fa-comments text-color ml-4 animate-bounce" aria-hidden="true"></i>
   </h2>
-  
   <div class="wrapper grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-
-    <!-- Testimonial 1 -->
-    <a href="https://perma-al-hasanah.github.io/" class="testimonials-items bg-black/70 border-2 border-gray-500/20 rounded-2xl p-6 flex flex-col items-center justify-center text-center gap-4 transition duration-400 hover:border-color hover:shadow-main-color">
-      <div class="relative">
-        <img src="gambar/rm.png" alt="Perma Al-Hasanah" class="w-32 h-32 object-cover rounded-full border-2 border-color shadow-main-color">
-        <div class="absolute -top-2 -right-2 bg-color text-border-color rounded-full w-10 h-10 flex items-center justify-center">
-          <i class="fas fa-quote-right" aria-hidden="true"></i>
+    <template x-for="tm in testimonials" :key="tm.name">
+      <a :href="tm.link" class="testimonials-items bg-black/70 border-2 border-gray-500/20 rounded-2xl p-6 flex flex-col items-center justify-center text-center gap-4 transition duration-400 hover:border-color hover:shadow-main-color">
+        <div class="relative">
+          <img :src="tm.img" :alt="tm.name" class="w-32 h-32 object-cover rounded-full border-2 border-color shadow-main-color">
+          <div class="absolute -top-2 -right-2 bg-color text-border-color rounded-full w-10 h-10 flex items-center justify-center">
+            <i class="fas fa-quote-right" aria-hidden="true"></i>
+          </div>
         </div>
-      </div>
-      <h3 class="text-xl md:text-2xl">Perma Al-Hasanah</h3>
-      <div class="rating text-yellow-400 text-xl" aria-label="Rating 5 of 5 stars">
-        <i class='bx bxs-star' aria-hidden="true"></i>
-        <i class='bx bxs-star' aria-hidden="true"></i>
-        <i class='bx bxs-star' aria-hidden="true"></i>
-        <i class='bx bxs-star' aria-hidden="true"></i>
-        <i class='bx bxs-star' aria-hidden="true"></i>
-      </div>
-      <p class="text-sm md:text-base">
-        <i class="fas fa-quote-left text-color mr-1 opacity-50" aria-hidden="true"></i>
-        Saya sangat mengapresiasi kerja keras Rajendra. Dalam satu hari, ia berhasil membuat website resmi untuk Perma Al-Hasanah dengan hasil yang luar biasa.
-        <i class="fas fa-quote-right text-color ml-1 opacity-50" aria-hidden="true"></i>
-      </p>
-    </a>
-
-    <!-- Testimonial 2 -->
-    <a href="https://github.com/rajendrazero/sertifikat" class="testimonials-items bg-black/70 border-2 border-gray-500/20 rounded-2xl p-6 flex flex-col items-center justify-center text-center gap-4 transition duration-400 hover:border-color hover:shadow-main-color">
-      <div class="relative">
-        <img src="gambar/sololearn-Front_End.png" alt="Sertifikat" class="w-32 h-32 object-cover rounded-full border-2 border-color shadow-main-color">
-        <div class="absolute -top-2 -right-2 bg-color text-border-color rounded-full w-10 h-10 flex items-center justify-center">
-          <i class="fas fa-quote-right" aria-hidden="true"></i>
+        <h3 class="text-xl md:text-2xl" x-text="tm.name"></h3>
+        <div class="rating text-yellow-400 text-xl" aria-label="Rating 5 of 5 stars">
+          <template x-for="i in tm.rating">
+            <i class='bx bxs-star' aria-hidden="true"></i>
+          </template>
         </div>
-      </div>
-      <h3 class="text-xl md:text-2xl">Sertifikat</h3>
-      <div class="rating text-yellow-400 text-xl" aria-label="Rating 5 of 5 stars">
-        <i class='bx bxs-star' aria-hidden="true"></i>
-        <i class='bx bxs-star' aria-hidden="true"></i>
-        <i class='bx bxs-star' aria-hidden="true"></i>
-        <i class='bx bxs-star' aria-hidden="true"></i>
-        <i class='bx bxs-star' aria-hidden="true"></i>
-      </div>
-      <p class="text-sm md:text-base">
-        <i class="fas fa-quote-left text-color mr-1 opacity-50" aria-hidden="true"></i>
-        Saya telah mengikuti berbagai kegiatan dan pelatihan untuk meningkatkan kemampuan saya dalam bidang pemrograman dan desain web.
-        <i class="fas fa-quote-right text-color ml-1 opacity-50" aria-hidden="true"></i>
-      </p>
-    </a>
-
-    <!-- Testimonial 3 -->
-    <a href="https://rajendrazero.github.io/Permen-Pagi-Itu/" class="testimonials-items bg-black/70 border-2 border-gray-500/20 rounded-2xl p-6 flex flex-col items-center justify-center text-center gap-4 transition duration-400 hover:border-color hover:shadow-main-color">
-      <div class="relative">
-        <img src="gambar/permen-pagi-itu.jpg" alt="Program Quotes" class="w-32 h-32 object-cover rounded-full border-2 border-color shadow-main-color">
-        <div class="absolute -top-2 -right-2 bg-color text-border-color rounded-full w-10 h-10 flex items-center justify-center">
-          <i class="fas fa-quote-right" aria-hidden="true"></i>
-        </div>
-      </div>
-      <h3 class="text-xl md:text-2xl">Program Quotes</h3>
-      <div class="rating text-yellow-400 text-xl" aria-label="Rating 5 of 5 stars">
-        <i class='bx bxs-star' aria-hidden="true"></i>
-        <i class='bx bxs-star' aria-hidden="true"></i>
-        <i class='bx bxs-star' aria-hidden="true"></i>
-        <i class='bx bxs-star' aria-hidden="true"></i>
-        <i class='bx bxs-star' aria-hidden="true"></i>
-      </div>
-      <p class="text-sm md:text-base">
-        <i class="fas fa-quote-left text-color mr-1 opacity-50" aria-hidden="true"></i>
-        Saya membuat website quotes interaktif yang menampilkan berbagai kutipan inspiratif dengan fitur-fitur menarik seperti karaoke teks.
-        <i class="fas fa-quote-right text-color ml-1 opacity-50" aria-hidden="true"></i>
-      </p>
-    </a>
-
+        <p class="text-sm md:text-base">
+          <i class="fas fa-quote-left text-color mr-1 opacity-50" aria-hidden="true"></i>
+          <span x-text="tm.desc"></span>
+          <i class="fas fa-quote-right text-color ml-1 opacity-50" aria-hidden="true"></i>
+        </p>
+      </a>
+    </template>
   </div>
 </section>
 
