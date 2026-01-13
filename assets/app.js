@@ -1,8 +1,19 @@
-    // Toggle menu for mobile
-    const menuIcon = document.getElementById('menu-icon');
-    const colorIcon = document.getElementById('color-icon');
-    const navbar = document.querySelector('.navbar');
-    const navbar2 = document.querySelector('.navbar2');
+// Fungsi fetch data JSON
+async function fetchData() {
+  try {
+    const res = await fetch('assets/content.json');
+    return await res.json();
+  } catch (e) {
+    console.error('Gagal load JSON:', e);
+    return {};
+  }
+}
+
+// Toggle menu for mobile
+    let menuIcon = document.getElementById('menu-icon');
+    let colorIcon = document.getElementById('color-icon');
+    let navbar = document.querySelector('.navbar');
+    let navbar2 = document.querySelector('.navbar2');
     
   // Fungsi konversi heksadesimal ke RGB
   function hexToRgb(hex) {
@@ -224,3 +235,24 @@
     createAnimatedBg();
     setupScrollEffects();
   });
+window.portfolioApp = {
+  profile: {},
+  education: [],
+  skills: [],
+  async init() {
+    try {
+      const res = await fetch('assets/content.json');
+      const data = await res.json();
+      this.profile = data.profile;
+      this.education = data.education;
+      this.skills = data.skills;
+      document.querySelectorAll('[x-data]').forEach(el => {
+        if (window.Alpine) {
+          Alpine.initTree(el);
+        }
+      });
+    } catch (e) {
+      console.error('Gagal load JSON:', e);
+    }
+  }
+};
