@@ -1,0 +1,105 @@
+{
+  "profile": {
+    "name": "Rajendra Athallah Fawwaz",
+    "nickname": "Rajendra",
+    "title": "Junior Web Developer & Backend Programmer",
+    "description": "Saya seorang junior web developer dengan kemampuan di backend dan frontend. Saat ini fokus memperdalam React, Node, dan framework modern untuk membangun website yang interaktif, responsif, dan SEO-friendly.",
+    "image": "gambar/image.png",
+    "social": [
+      { "label": "LinkedIn", "icon": "bxl-linkedin", "url": "https://www.linkedin.com/in/raj-rajendra-athallah-fawwaz-443957317" },
+      { "label": "GitHub", "icon": "bxl-github", "url": "https://github.com/rajendrazero" },
+      { "label": "Instagram", "icon": "bxl-instagram-alt", "url": "https://www.instagram.com/rfz08_/" },
+      { "label": "WhatsApp", "icon": "bxl-whatsapp", "url": "https://wa.me/62882017296806?text=Halo,%20Rajendra!" }
+    ]
+  },
+  "education": [
+    {
+      "year": "2020",
+      "school": "MTs Darul Aman",
+      "desc": "Saya memulai jenjang pendidikan setara SMP di MTs Darul Aman pada tahun 2020. Di sinilah saya mulai mempelajari pemrograman dan akhirnya bisa membuat website ini pada 14 Juni 2024.",
+      "icon": "fa-school"
+    },
+    {
+      "year": "2023",
+      "school": "SMKN-9",
+      "desc": "Saat ini saya bersekolah di SMKN-9 dengan jurusan Rekayasa Perangkat Lunak (RPL). Saya mendalami berbagai aspek pemrograman baik secara akademis maupun otodidak.",
+      "icon": "fa-laptop-code"
+    },
+    {
+      "year": "2024",
+      "school": "Belajar Otodidak",
+      "desc": "Saat ini saya fokus memahami dasar-dasar setiap bahasa pemrograman yang saya pelajari untuk membangun fondasi yang kuat.",
+      "icon": "fa-book-reader"
+    },
+    {
+      "year": "2024",
+      "school": "Job List",
+      "desc": "Saat ini saya belum memiliki pengalaman kerja profesional karena baru serius mempelajari pemrograman selama 1 tahun terakhir.",
+      "icon": "fa-laptop-code"
+    }
+  ],
+  "skills": [
+    { "name": "JavaScript", "icon": "fab fa-js-square", "level": 80 },
+    { "name": "Node.js", "icon": "fab fa-node-js", "level": 75 },
+    { "name": "NestJS", "icon": "fas fa-server", "level": 50 },
+    { "name": "React", "icon": "fab fa-react", "level": 70 },
+    { "name": "HTML5", "icon": "fab fa-html5", "level": 90 },
+    { "name": "CSS3", "icon": "fab fa-css3-alt", "level": 85 },
+    { "name": "Bootstrap", "icon": "fab fa-bootstrap", "level": 80 },
+    { "name": "Git", "icon": "fab fa-git-alt", "level": 70 },
+    { "name": "Figma", "icon": "fas fa-pencil-ruler", "level": 60 },
+    { "name": "Adobe Photoshop", "icon": "fas fa-image", "level": 35 },
+    { "name": "PHP", "icon": "fab fa-php", "level": 40 },
+    { "name": "Laravel", "icon": "fas fa-leaf", "level": 30 },
+    { "name": "MySQL", "icon": "fas fa-database", "level": 50 },
+    { "name": "PostgreSQL", "icon": "fas fa-database", "level": 40 },
+    { "name": "Docker", "icon": "fab fa-docker", "level": 30 },
+    { "name": "Linux", "icon": "fab fa-linux", "level": 50 }
+
+  ],
+  "services": [
+    {
+      "name": "UI Design",
+      "icon": "fas fa-paint-brush",
+      "desc": "Membuat antarmuka yang menarik, konsisten, dan modern."
+    },
+    {
+      "name": "UX Design",
+      "icon": "fas fa-mobile-alt",
+      "desc": "Merancang pengalaman pengguna yang intuitif dan efektif."
+    },
+    {
+      "name": "Frontend Developer",
+      "icon": "fas fa-laptop-code",
+      "desc": "Mengimplementasikan desain menjadi website interaktif."
+    },
+    {
+      "name": "Backend Developer",
+      "icon": "fas fa-server",
+      "desc": "Membangun API, database, dan logika sistem yang kuat."
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Perma Al-Hasanah",
+      "img": "gambar/rm.png",
+      "link": "https://perma-al-hasanah.github.io/",
+      "rating": 5,
+      "desc": "Saya sangat mengapresiasi kerja keras Rajendra. Dalam satu hari, ia berhasil membuat website resmi untuk Perma Al-Hasanah dengan hasil yang luar biasa."
+    },
+    {
+      "name": "Sertifikat",
+      "img": "gambar/sololearn-Front_End.png",
+      "link": "https://github.com/rajendrazero/sertifikat",
+      "rating": 5,
+      "desc": "Saya telah mengikuti berbagai kegiatan dan pelatihan untuk meningkatkan kemampuan saya dalam bidang pemrograman dan desain web."
+    },
+    {
+      "name": "Program Quotes",
+      "img": "gambar/permen-pagi-itu.jpg",
+      "link": "https://rajendrazero.github.io/Permen-Pagi-Itu/",
+      "rating": 5,
+      "desc": "Saya membuat website quotes interaktif yang menampilkan berbagai kutipan inspiratif dengan fitur-fitur menarik seperti karaoke teks."
+    }
+  ]
+}
