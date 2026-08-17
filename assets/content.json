@@ -4,7 +4,7 @@
     "nickname": "Rajendra",
     "title": "Junior Web Developer & Backend Programmer",
     "description": "Saya seorang junior web developer dengan kemampuan di backend dan frontend. Saat ini fokus memperdalam React, Node, dan framework modern untuk membangun website yang interaktif, responsif, dan SEO-friendly.",
-    "image": "gambar/image.png",
+    "image": "gambar/raj.jpg",
     "social": [
       { "label": "LinkedIn", "icon": "bxl-linkedin", "url": "https://www.linkedin.com/in/raj-rajendra-athallah-fawwaz-443957317" },
       { "label": "GitHub", "icon": "bxl-github", "url": "https://github.com/rajendrazero" },
